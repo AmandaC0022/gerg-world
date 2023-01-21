@@ -1,13 +1,13 @@
-import logo from './GWLogoSm.png';
+import logo from './images/';
 import './App.css';
 
 function App() {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>Welcome to Gerg's World!</p>
-      </header>
+    <div>
+      <h1>Welcome to Gerg's World</h1>
+      <div className="logo">
+        {logo}
+      </div>
     </div>
   );
 }
