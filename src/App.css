@@ -3,6 +3,9 @@
   --blue: #276CA4; 
   --orange: #F58242;  
 }
+body {
+  margin: 0; 
+}
 
 main {
   flex: 1 0 auto; 
@@ -27,4 +30,62 @@ h3 {
 p {
   font-family: 'Lato', serif; 
   font-size: 24px; 
+}
+
+/* NAVBAR */ 
+nav { 
+  background: linear-gradient(#CEE3F4, #3396EB, #276CA4); 
+  width: 100%; 
+}
+.navHeader {
+  display: flex; 
+  justify-content: center; 
+  align-items: center;
+}
+.navbarHeader {
+  -webkit-text-stroke: .1px black;
+  color:var(--orange); 
+}
+.links{
+  display: flex; 
+  flex-wrap: wrap;
+  justify-content: center;
+}
+.links a{
+  font-family: 'Lato', serif;
+  font-size:18px; 
+  margin:0px 20px 20px 20px; 
+  text-transform: uppercase;
+  color: var(--lime); 
+  text-decoration: none;
+} 
+.hover-underline-animation {
+  display: inline-block;
+  position: relative;
+  color: var(--lime);
+}
+.hover-underline-animation::after {
+  content: '';
+  position: absolute;
+  width: 100%;
+  transform: scaleX(0);
+  height: 2px;
+  bottom: 0;
+  left: 0;
+  background-color: var(--lime);
+  transform-origin: bottom right;
+  transition: transform 0.25s ease-out;
+}
+.hover-underline-animation:hover::after {
+  transform: scaleX(1);
+  transform-origin: bottom left;
+}
+
+@media screen and (max-width: 768px) {
+  .navHeader h1 {
+    display: none; 
+  }
+  .navHeader img{
+    margin: 10px; 
+  }
 }

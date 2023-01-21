@@ -1,13 +1,10 @@
-import logo from './images/';
 import './App.css';
+import Navbar from "./components/Navbar"; 
 
 function App() {
   return (
     <div>
-      <h1>Welcome to Gerg's World</h1>
-      <div className="logo">
-        {logo}
-      </div>
+      <Navbar/>
     </div>
   );
 }
