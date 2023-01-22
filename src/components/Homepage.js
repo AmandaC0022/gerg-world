@@ -1,5 +1,6 @@
 import image from "../images/hello sunshine.png"; 
 import GergaloftheDay from "./GergalOfTheDay";
+import Gergcaster from "./Gergcaster";
 
 const Homepage = () => {
     return ( 
@@ -13,6 +14,7 @@ const Homepage = () => {
                 </div>
             </div>
             <GergaloftheDay/>
+            <Gergcaster/>
         </div>
      );
 }
