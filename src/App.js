@@ -1,12 +1,14 @@
 import './App.css';
-import HomepageBanner from './components/Homepage-Banner';
+import Homepage from './components/Homepage';
 import Navbar from "./components/Navbar"; 
 
 function App() {
   return (
     <div>
       <Navbar/>
-      <HomepageBanner/>
+      <div className="body">
+        <Homepage/>
+      </div>
     </div>
   );
 }
