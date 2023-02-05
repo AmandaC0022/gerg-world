@@ -6,23 +6,21 @@ const Gergcaster = () => {
     // const [homeTeam, sethomeTeam] = useState(); 
     // const [awayTeam, setawayTeam] = useState(); 
     // const [homeScore, sethomeScore] = useState(); 
-    // const [awayScore, setawayScore] = useState(); 
-
-    fetch('https://api.collegefootballdata.com/games?year=2022&seasonType=regular&team=Auburn', {
-        method: 'GET', 
-        mode: 'no-cors', 
-        headers: {
-            Authorization:'Bearer I5xXYkmuVikMDyST3O2KQpsMRt/RESQ2wje+KBYrySO/QLT3RtfaTHgixYEC/LdM', 
-            accept: 'application/json',
-        }, 
-    })
-    .then((response) => response.json())
-    .then((data) => {
-        console.log(data); 
-    })
-    .catch((err)=> {
-        console.log(err.message); 
-    }); 
+    // const [awayScore, setawayScore] = useState();  
+    
+    const getGameData = () => {
+        let url = 'https://americanfootballapi.p.rapidapi.com/api/american-football/team/4294/matches/previous/0'; 
+        fetch(url, {
+            method: 'GET', 
+            headers: {
+                'X-RapidAPI-Key': process.env.REACT_APP_API_KEY,
+                'X-RapidAPI-Host': 'americanfootballapi.p.rapidapi.com'
+            }
+        }).then(res => res.json())
+        .then(res => console.log(res.events[0].awayTeam.name))
+        .catch(err => {console.error(err)})
+    }; 
+    getGameData(); 
 
     return ( 
         <div className="gergcaster-container">
