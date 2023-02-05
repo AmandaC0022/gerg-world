@@ -1,12 +1,11 @@
 import { useState, useEffect } from 'react'; 
 
 const Gergcaster = () => {
-    // const [date, setDate] = useState(); 
-    // const [venue, setVenue] = useState(); 
-    // const [homeTeam, sethomeTeam] = useState(); 
-    // const [awayTeam, setawayTeam] = useState(); 
-    // const [homeScore, sethomeScore] = useState(); 
-    // const [awayScore, setawayScore] = useState();  
+    const [date, setDate] = useState(); 
+    const [homeTeam, sethomeTeam] = useState(); 
+    const [awayTeam, setawayTeam] = useState(); 
+    const [homeScore, sethomeScore] = useState(); 
+    const [awayScore, setawayScore] = useState();  
     
     const getGameData = () => {
         let url = 'https://americanfootballapi.p.rapidapi.com/api/american-football/team/4294/matches/previous/0'; 
@@ -17,7 +16,15 @@ const Gergcaster = () => {
                 'X-RapidAPI-Host': 'americanfootballapi.p.rapidapi.com'
             }
         }).then(res => res.json())
-        .then(res => console.log(res.events[0].awayTeam.name))
+        .then(res => {
+            console.log(res); 
+            setawayTeam(res.events[0].awayTeam.name);
+            sethomeScore(res.events[0].homeScore.display); 
+            setawayScore(res.events[0].awayScore.display); 
+            sethomeTeam(res.events[0].homeTeam.name); 
+            setDate(res.event[0].startTimestamp); 
+            return; 
+        })
         .catch(err => {console.error(err)})
     }; 
     getGameData(); 
@@ -29,7 +36,6 @@ const Gergcaster = () => {
                 <thead>
                     <tr>
                         <th>DATE</th>
-                        <th>VENUE</th>
                         <th>HOME TEAM</th>
                         <th>AWAY TEAM</th>
                         <th>HOME SCORE</th>
@@ -38,12 +44,11 @@ const Gergcaster = () => {
                 </thead>
                 <tbody>
                     <tr>
-                        <td>10/30</td>
-                        <td>Jordan-Hare Stadium</td>
-                        <td>Auburn</td>
-                        <td>Ole Miss</td>
-                        <td>31</td>
-                        <td>20</td>
+                        <td>{date}</td>
+                        <td>{homeTeam}</td>
+                        <td>{awayTeam}</td>
+                        <td>{homeScore}</td>
+                        <td>{awayScore}</td>
                     </tr>
                 </tbody>
             </table>
