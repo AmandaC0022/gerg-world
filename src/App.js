@@ -11,7 +11,12 @@ function App() {
         <Routes>
           <Navbar/>
           <Route path="/" element={<Homepage/>}/> 
-          <Route path="/chronicles" elements={<Chronicles/>}/>
+          <Route path="/chronicles" element={<Chronicles/>}/>
+          {/* <Route path="/gergatizer" element={<Gergatizers/>}/>
+          <Route path="/gergals" element={<Gergals/>}/>
+          <Route path="/gergisms" element={<Gergisms/>}/>
+          <Route path="/faces" element={<FacesOfGerg/>}/>
+          <Route path="/shop" element={<ShopAGerg/>}/> */}
           <Footer/>
         </Routes>
       </div>

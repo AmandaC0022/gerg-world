@@ -6,7 +6,7 @@ import GergChroniclesUpdate from "../components/GergChroniclesUpdate";
 const Homepage = () => {
     return ( 
         <div>
-            <div className="homepage-hero">
+            <div className="pageHero">
                 <img src={image} alt="Hello!"/> 
                 <div>
                     <h2>Welcome to Gerg's World!</h2>

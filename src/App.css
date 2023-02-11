@@ -115,14 +115,14 @@ footer .links a {
 }
 
 /* HOMEPAGE */
-.homepage-hero {
+.pageHero {
   display: flex; 
   justify-content: space-evenly;
   align-items: center;
   margin-top: 10px; 
   text-align: center;
 }
-.homepage-hero img {
+.pageHero img {
   width: 30%; 
   margin: 20px; 
 }

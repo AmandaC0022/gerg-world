@@ -10,7 +10,7 @@ const Navbar = () => {
                     <a style={{textDecoration:'none'}}href="/"> <h1 className='navbarHeader'>Gerg's World</h1> </a> 
                 </div>
                 <div className="links">
-                    <a className="hover-underline-animation"href="/">"GERG"CHRONICLES</a>
+                    <Link className="hover-underline-animation"href="/">"GERG"CHRONICLES</Link>
                     <a className="hover-underline-animation"href="/">"GERG"ATIZERS</a>
                     <a className="hover-underline-animation"href="/">"GERG"ISMS</a>
                     <a className="hover-underline-animation"href="/">FACES OF "GERG"</a>
