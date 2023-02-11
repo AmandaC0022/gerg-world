@@ -1,7 +1,7 @@
 import image from "../images/hello sunshine.png"; 
-import GergaloftheDay from "./GergalOfTheDay";
-import Gergcaster from "./Gergcaster";
-import GergChroniclesUpdate from "./GergChroniclesUpdate";
+import GergaloftheDay from "../components/GergalOfTheDay";
+import Gergcaster from "../components/Gergcaster";
+import GergChroniclesUpdate from "../components/GergChroniclesUpdate";
 
 const Homepage = () => {
     return ( 
