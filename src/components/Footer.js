@@ -1,12 +1,11 @@
 import logo from "../images/GWLogoSm.png"; 
 
-const Navbar = () => {
+const Footer = () => {
     return ( 
-        <nav>
-            <div className="nav-content">
+    <footer>
+        <div className="nav-content">
                 <div className="navHeader">
-                    <img src={logo} height="70" width="70" style={{ marginRight:'10px'}} alt="Gerg's World Logo"/> 
-                    <a style={{textDecoration:'none'}}href="/"> <h1 className='navbarHeader'>Gerg's World</h1> </a> 
+                    <img src={logo} height="70" width="70" style={{ marginRight:'10px'}} alt="Gerg's World Logo"/>  
                 </div>
                 <div className="links">
                     <a className="hover-underline-animation"href="/">"GERG"CHRONICLES</a>
@@ -15,9 +14,10 @@ const Navbar = () => {
                     <a className="hover-underline-animation"href="/">FACES OF "GERG"</a>
                     <a className="hover-underline-animation"href="/">SHOP A "GERG"</a>
                 </div>
+                <p>Copyright @2023 Gerg's World</p>
             </div>
-        </nav>
+    </footer>
      );
 }
  
-export default Navbar;
+export default Footer;

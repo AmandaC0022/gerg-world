@@ -2,6 +2,7 @@
   --lime: #C6DB57; 
   --blue: #276CA4; 
   --orange: #F58242;  
+  --shadow: 2px 2px 6px black; 
 }
 .body {
   margin-right: 10%;
@@ -30,7 +31,7 @@ h3 {
   font-size: 30px;
 }
 h4 { 
-  font-size: 30px; 
+  font-size: 20px; 
   text-transform: uppercase;
 }
 
@@ -96,6 +97,23 @@ nav {
   }
 }
 
+/* FOOTER */
+footer {
+  background: linear-gradient(#CEE3F4, #3396EB, #276CA4); 
+  width: 100%; 
+  padding: 20px; 
+}
+footer img {
+  margin-bottom: 10px; 
+}
+footer p {
+  text-align: center;
+  font-size: 12px; 
+}
+footer .links a {
+  margin-bottom:0; 
+}
+
 /* HOMEPAGE */
 .homepage-hero {
   display: flex; 
@@ -129,7 +147,7 @@ nav {
   background-color: var(--blue);
   border-radius: 25px;
   text-align: center;
-  box-shadow: 2px 2px 6px black;
+  box-shadow: var(--shadow); 
   margin: 20px 0px; 
 }
 .GOTDcontainer p {
@@ -144,7 +162,7 @@ nav {
 .gergcaster-container {
   background-color: var(--orange);
   border-radius: 25px;
-  box-shadow: 2px 2px 6px black;
+  box-shadow: var(--shadow);
   padding: 20px; 
   margin: 20px 0px; 
   text-align: center;
@@ -158,12 +176,41 @@ nav {
   width:100%; 
   padding: 10px; 
 }
-.football-data tr{
-  padding: 20px 20px; 
+.football-data thead{
+  text-decoration:underline; 
+  font-weight:bold; 
+}
+.GCUContainer {
+  background-color: var(--lime);
+  box-shadow: 2px 2px 6px black;
+  margin: 30px 0px; 
+  padding: 20px; 
+  border-radius: 25px;
+}
+.GCUContainer h2 {
+  color: var(--orange); 
+  text-align: center; 
+  margin: 20px; 
+}
+.GCUCard {
+  background-color: white;
+  padding: 40px;  
+  border-radius: 25px;
+}
+.GCUHeader {
+  display: flex; 
+  justify-content: space-between;
+}
+.GCUHeader h3, h4 {
+  margin: 0; 
 }
 
 
 @media screen and (max-width: 786px){
+  .body{
+    margin-right:2%; 
+    margin-left:2%; 
+  }
   .homepage-hero {
     justify-content: center;
     flex-wrap: wrap; 
@@ -182,5 +229,10 @@ nav {
   .GOTDcontainer h2 {
     padding: 10px; 
   }
-
+  .GCUContainer h2 {
+    font-size:40px; 
+  }
+  .GCUCard p {
+    text-align: center;
+  }
 }

@@ -1,6 +1,7 @@
 import './App.css';
 import Homepage from './components/Homepage';
 import Navbar from "./components/Navbar"; 
+import Footer from './components/Footer';
 
 function App() {
   return (
@@ -9,6 +10,7 @@ function App() {
       <div className="body">
         <Homepage/>
       </div>
+      <Footer/>
     </div>
   );
 }
