@@ -1,14 +1,11 @@
 import { useState, useEffect } from 'react'; 
 
 const Gergcaster = () => {
-    const [date, setDate] = useState(); 
-    const [homeTeam, sethomeTeam] = useState(); 
-    const [awayTeam, setawayTeam] = useState(); 
-    const [homeScore, sethomeScore] = useState(); 
-    const [awayScore, setawayScore] = useState();  
+    const [games, setGames] = useState([]); 
+    const [date, setDates] = useState([]); 
+    const url = 'https://americanfootballapi.p.rapidapi.com/api/american-football/team/4294/matches/previous/0'; 
     
-    const getGameData = () => {
-        let url = 'https://americanfootballapi.p.rapidapi.com/api/american-football/team/4294/matches/previous/0'; 
+    function loadGameData() {
         fetch(url, {
             method: 'GET', 
             headers: {
@@ -17,25 +14,22 @@ const Gergcaster = () => {
             }
         }).then(res => res.json())
         .then(res => {
-            console.log(res); 
-            setawayTeam(res.events[0].awayTeam.name);
-            sethomeScore(res.events[0].homeScore.display); 
-            setawayScore(res.events[0].awayScore.display); 
-            sethomeTeam(res.events[0].homeTeam.name); 
-            setDate(res.event[0].startTimestamp); 
-            return; 
+            console.log(res.events);
+            console.log(res.events.startTimestamp); 
+            setGames(res.events); 
+            setDates(res.events.startTimestamp); 
         })
-        .catch(err => {console.error(err)})
-    }; 
-    getGameData(); 
+        .catch(err => {console.error(err)}); 
+    }
 
+    useEffect(() => {loadGameData()}, []); 
+    
     return ( 
         <div className="gergcaster-container">
             <h2>"Gerg"caster Highlights</h2>
             <table className="football-data">
                 <thead>
                     <tr>
-                        <th>DATE</th>
                         <th>HOME TEAM</th>
                         <th>AWAY TEAM</th>
                         <th>HOME SCORE</th>
@@ -43,13 +37,16 @@ const Gergcaster = () => {
                     </tr>
                 </thead>
                 <tbody>
-                    <tr>
-                        <td>{date}</td>
-                        <td>{homeTeam}</td>
-                        <td>{awayTeam}</td>
-                        <td>{homeScore}</td>
-                        <td>{awayScore}</td>
-                    </tr>
+                    {games.map((game) => {
+                        return (
+                            <tr key={game.customId}>
+                                <td>{game.homeTeam.name}</td>
+                                <td>{game.awayTeam.name}</td>
+                                <td>{game.homeScore.display}</td>
+                                <td>{game.awayScore.display}</td>
+                            </tr>
+                        )
+                    })}
                 </tbody>
             </table>
         </div>

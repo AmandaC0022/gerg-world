@@ -158,6 +158,9 @@ nav {
   width:100%; 
   padding: 10px; 
 }
+.football-data tr{
+  padding: 20px 20px; 
+}
 
 
 @media screen and (max-width: 786px){
