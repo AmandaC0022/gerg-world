@@ -1,4 +1,5 @@
 import logo from "../images/GWLogoSm.png"; 
+import { Link } from "react-router-dom";
 
 const Navbar = () => {
     return ( 
