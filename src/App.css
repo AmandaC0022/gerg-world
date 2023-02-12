@@ -211,11 +211,11 @@ footer .links a {
     margin-right:2%; 
     margin-left:2%; 
   }
-  .homepage-hero {
+  .pageHero {
     justify-content: center;
     flex-wrap: wrap; 
   }
-  .homepage-hero img {
+  .pageHero img {
     width: 50%; 
   }
   .GOTDcontainer {
@@ -235,4 +235,54 @@ footer .links a {
   .GCUCard p {
     text-align: center;
   }
+}
+
+/* GERG CHRONICLES PAGE */
+.blogPostContainer {
+  background-color: var(--blue); 
+  padding: 20px; 
+  border-radius: 25px;
+  box-shadow: var(--shadow);
+}
+.blogPost {
+  background-color: white;
+  padding: 20px; 
+  border-radius: 25px;
+}
+.blogPostHeader {
+  display: flex; 
+  align-items: center;
+  justify-content: space-between;
+}
+.addBlogContainer {
+  background-color: var(--lime);
+  border-radius: 25px;
+  box-shadow: var(--shadow);
+  padding: 20px; 
+  margin: 30px 0px; 
+  text-align: center;
+}
+.addBlogContainer form input {
+  background-color: white; 
+  border-radius: 25px;
+  padding: 10px; 
+  margin: 10px; 
+  width: 90%; 
+}
+#blogTextarea {
+  height:100px; 
+}
+.addBlogContainer button {
+  background-color: white; 
+  font-size: 26px;
+  font-weight: bold;
+  font-family: 'a Alloy Ink', serif;
+  color: black; 
+  padding: 10px; 
+  border-radius: 25px;
+  transition: background-color 1s; 
+}
+.addBlogContainer button:hover {
+  background-color:black; 
+  color: white; 
 }
