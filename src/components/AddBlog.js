@@ -37,7 +37,7 @@ const AddBlog = () => {
                 onChange={handleChange}
             />
             <br/>
-            <button type="submit">Done!</button>
+            <button className="customButton" type="submit">Done!</button>
         </form>
     </div>
      );

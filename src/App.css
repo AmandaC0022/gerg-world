@@ -36,7 +36,7 @@ h4 {
 p {
   font-size: 18px; 
 }
-button {
+.customButton {
   background-color: white; 
   font-size: 26px;
   font-weight: bold;
@@ -47,7 +47,7 @@ button {
   border:none; 
   transition: .5s; 
 }
-button:hover, button:focus {
+.customButton:hover, .customButton:focus {
   color: white; 
   box-shadow: inset 6.5em 0 0 0 black; 
   cursor:pointer; 
@@ -260,16 +260,15 @@ footer .links a {
   padding: 20px; 
   border-radius: 25px;
   box-shadow: var(--shadow);
+  margin: 20px 0px;
 }
 .blogPost {
   background-color: white;
   padding: 20px; 
-  border-radius: 25px;
+  border-radius: 25px !important; 
 }
-.blogPostHeader {
-  display: flex; 
-  align-items: center;
-  justify-content: space-between;
+.blogPostHeader h4{
+  margin-left: 20px;
 }
 .addBlogContainer {
   background-color: var(--lime);
@@ -288,4 +287,12 @@ footer .links a {
 }
 #blogTextarea {
   height:100px; 
+}
+.accordion-button:focus {
+  box-shadow:none; 
+}
+.accordion-button:not(.collapsed) {
+  background-color: white;
+  color:black; 
+  box-shadow: none;
 }
