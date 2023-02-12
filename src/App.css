@@ -225,6 +225,9 @@ footer .links a {
     margin-right:2%; 
     margin-left:2%; 
   }
+  h2{
+    font-size:40px; 
+  }
   .pageHero {
     justify-content: center;
     flex-wrap: wrap; 
