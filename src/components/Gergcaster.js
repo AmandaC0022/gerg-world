@@ -2,7 +2,7 @@ import { useState, useEffect } from 'react';
 
 const Gergcaster = () => {
     const [games, setGames] = useState([]); 
-    const [date, setDates] = useState([]); 
+    // const [date, setDates] = useState([]); 
     const url = 'https://americanfootballapi.p.rapidapi.com/api/american-football/team/4294/matches/previous/0'; 
     
     function loadGameData() {
@@ -15,9 +15,9 @@ const Gergcaster = () => {
         }).then(res => res.json())
         .then(res => {
             console.log(res.events);
-            console.log(res.events.startTimestamp); 
+            // console.log(res.events.startTimestamp); 
             setGames(res.events); 
-            setDates(res.events.startTimestamp); 
+            // setDates(res.events.startTimestamp); 
         })
         .catch(err => {console.error(err)}); 
     }
