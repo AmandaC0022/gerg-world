@@ -15,9 +15,7 @@ const Gergcaster = () => {
         }).then(res => res.json())
         .then(res => {
             console.log(res.events);
-            // console.log(res.events.startTimestamp); 
             setGames(res.events); 
-            // setDates(res.events.startTimestamp); 
         })
         .catch(err => {console.error(err)}); 
     }
