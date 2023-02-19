@@ -4,7 +4,7 @@ const PORT = process.env.PORT || 8000;
 const db = require('./config/connection');
 const { ApolloServer } = require('apollo-server-express');
 // const path = require('path');
-const { typeDefs, resolvers } = require('./schemas');
+const { typeDefs, resolvers } = require('./schema');
 
 // creates the express app 
 const app = express(); 

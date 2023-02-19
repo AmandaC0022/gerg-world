@@ -1,4 +1,4 @@
-const { Chronicle } = require('../models/Chronicles'); 
+const { Chronicle } = require('../models'); 
 
 const resolvers = {
     Query: {
