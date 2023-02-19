@@ -1,9 +1,9 @@
 const express = require('express'); 
-const chronicleRoutes = require('./routes/chronicles'); 
+// const chronicleRoutes = require('./routes/chronicles'); 
 const PORT = process.env.PORT || 8000;
 const db = require('./config/connection');
 const { ApolloServer } = require('apollo-server-express');
-const path = require('path');
+// const path = require('path');
 const { typeDefs, resolvers } = require('./schemas');
 
 // creates the express app 
@@ -12,13 +12,11 @@ const app = express();
 const server = new ApolloServer({
   typeDefs,
   resolvers,
-  context: authMiddleware,
 });
 
-
 //middleware
-server.applyMiddleware({ app });
 app.use(express.json()); 
+server.applyMiddleware({ app });
 app.use(express.urlencoded({ extended: false }));
 // app.use((req, res, next) => {
 //     console.log(res.path, req.method); 
