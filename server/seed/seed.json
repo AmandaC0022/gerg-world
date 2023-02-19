@@ -1,0 +1,19 @@
+[
+    {
+        "title": "Blog 1",
+        "body": "This is my first Blog!"
+    }, 
+    {
+        "title": "Blog 2",
+        "body": "This is my second Blog!"
+    },
+    {
+        "title": "Blog 3",
+        "body": "This is my third Blog!"
+    },
+    {
+        "title": "Blog 4",
+        "body": "This is my fourth Blog!"
+    }
+    
+]
