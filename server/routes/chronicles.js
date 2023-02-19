@@ -1,5 +1,6 @@
 const express = require('express'); 
 const router = express.Router(); 
+const Chronicle = require('../models/Chronicles'); 
 
 //GET all chronicles 
 router.get('/', (req, res) => {
@@ -12,9 +13,16 @@ router.get('/:id', (req, res) => {
 })
 
 //Post a new Chroncile 
-router.post('/', (req, res) => {
-    res.json({mssg: 'POST a new Chronicle'}); 
-})
+router.post('/', async (req, res) => {
+    const { title, body } = req.body; 
+    try {
+        const chronicle = await Chronicle.create({ title, body }); 
+        res.status(200).json(chronicle); 
+    }
+    catch(err) {
+        res.status(400).json({err: err.message}); 
+    } 
+}); 
 
 //DELETE a chronicle 
 router.delete('/:id', (req, res) => {
