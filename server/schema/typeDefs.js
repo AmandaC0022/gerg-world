@@ -10,6 +10,10 @@ const typeDefs = gql`
   type Query {
     chronicle: [Chronicle]
   }
+
+  type Mutation {
+    createBlog(title: String!, body: String!): Chronicle
+  }
 `;
 
 module.exports = typeDefs;

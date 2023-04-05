@@ -1,4 +1,6 @@
 import { useState } from "react"; 
+import { useMutation, useQuery } from '@apollo/client';
+
 
 const AddBlog = () => {
     const [blogInfo, setBlogInfo] = useState({

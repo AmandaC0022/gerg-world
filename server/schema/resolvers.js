@@ -5,6 +5,12 @@ const resolvers = {
         chronicle: async () => {
             return Chronicle.find({}); 
         }
+    },
+    Mutation: {
+        createBlog: async (parent, args) => {
+            const blog = await Chronicle.create(args); 
+            return blog; 
+        }
     }
 }
 

@@ -1,10 +1,12 @@
 const express = require('express'); 
-// const chronicleRoutes = require('./routes/chronicles'); 
-const PORT = process.env.PORT || 8000;
+require('dotenv').config();
+const PORT = process.env.PORT; 
 const db = require('./config/connection');
 const { ApolloServer } = require('apollo-server-express');
-// const path = require('path');
 const { typeDefs, resolvers } = require('./schema');
+const graphqlHTTP = require('express-graphql'); 
+
+console.log(PORT); 
 
 // creates the express app 
 const app = express(); 
@@ -18,13 +20,6 @@ const server = new ApolloServer({
 app.use(express.json()); 
 server.applyMiddleware({ app });
 app.use(express.urlencoded({ extended: false }));
-// app.use((req, res, next) => {
-//     console.log(res.path, req.method); 
-//     next(); 
-// })
-
-//routes
-// app.use('/api/chronicles', chronicleRoutes); 
 
 //connect to db
 db.once('open', () => {

@@ -1,4 +1,4 @@
-import { useState, useEffect } from 'react'; 
+import { useState, useEffect } from 'react';
 
 const Gergcaster = () => {
     const [games, setGames] = useState([]); 
@@ -9,7 +9,7 @@ const Gergcaster = () => {
         fetch(url, {
             method: 'GET', 
             headers: {
-                'X-RapidAPI-Key': process.env.REACT_APP_API_KEY,
+                'X-RapidAPI-Key': process.env.API_KEY,
                 'X-RapidAPI-Host': 'americanfootballapi.p.rapidapi.com'
             }
         }).then(res => res.json())
