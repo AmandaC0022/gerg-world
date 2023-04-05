@@ -4,9 +4,6 @@ const PORT = process.env.PORT;
 const db = require('./config/connection');
 const { ApolloServer } = require('apollo-server-express');
 const { typeDefs, resolvers } = require('./schema');
-const graphqlHTTP = require('express-graphql'); 
-
-console.log(PORT); 
 
 // creates the express app 
 const app = express(); 

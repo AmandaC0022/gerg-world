@@ -1,8 +1,14 @@
 import image from "../images/dear dairy.png"; 
 import AddBlog from "../components/AddBlog";
 import Accordion from 'react-bootstrap/Accordion';
+import { useQuery } from '@apollo/client';
+import { QUERY_BLOG } from '../utils/queries';
 
 const Chronicles = () => {
+    const { loading, data } = useQuery(QUERY_BLOG); 
+    const blogList = data?.blog || []; 
+    console.log(blogList); 
+
     return ( 
         <div>
             <div className="pageHero">
@@ -12,6 +18,7 @@ const Chronicles = () => {
                     <p>Ever wondered what all was going on in that silly mind of Gerg? Now is your chance. Below is a blog, fully written by Gerg himself.</p>
                 </div>
             </div>
+
             <Accordion className="blogPostContainer" defaultActiveKey="0">
                 <Accordion.Item eventKey="0" className="blogPost">
                     <Accordion.Header className="blogPostHeader">
