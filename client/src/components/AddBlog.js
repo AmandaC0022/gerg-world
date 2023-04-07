@@ -1,22 +1,27 @@
 import { useState } from "react"; 
-import { useMutation, useQuery } from '@apollo/client';
-
+import { useMutation } from '@apollo/client';
+import { CREATE_BLOG } from '../utils/mutations';
 
 const AddBlog = () => {
-    const [blogInfo, setBlogInfo] = useState({
-        title: "", 
-        message: "", 
-    }); 
+    const [title, setTitle] = useState(''); 
+    const [body, setBody] = useState(''); 
 
-    const handleChange = (event) => {
-        setBlogInfo({ ...blogInfo, [event.target.name]: event.target.value })
-    }; 
+    const [createBlog] = useMutation(CREATE_BLOG); 
 
-    const handleSubmit = (event) => {
+    const handleSubmit = async (event) => {
         event.preventDefault(); 
-        console.log(blogInfo); 
-        setBlogInfo({ title:"", message:"" }); 
-    }; 
+        try {
+            await createBlog({
+                variables: { title: title, body: body }
+            })
+            console.log(`Blog was created Title:${title}, Body:${body}`); 
+        } catch (err) {
+            console.log(err); 
+        }
+    
+        setTitle(''); 
+        setBody(''); 
+    }
 
     return ( 
     <div className="addBlogContainer">
@@ -26,17 +31,17 @@ const AddBlog = () => {
                 type="text" 
                 name="title" 
                 placeholder="Title"
-                value={blogInfo.title}
-                onChange={handleChange}
+                value={title}
+                onChange={(e)=>{setTitle(e.target.value)}}
             />
             <br/>
             <input 
                 id="blogTextarea"
                 type="textarea" 
-                name="message" 
+                name="body" 
                 placeholder="Write Your Blog Here"
-                value={blogInfo.message}
-                onChange={handleChange}
+                value={body}
+                onChange={(e)=>{setBody(e.target.value)}}
             />
             <br/>
             <button className="customButton" type="submit">Done!</button>

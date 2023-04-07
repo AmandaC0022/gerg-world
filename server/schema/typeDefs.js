@@ -8,7 +8,7 @@ const typeDefs = gql`
   }
 
   type Query {
-    chronicle: [Chronicle]
+    getBlogs: [Chronicle]
   }
 
   type Mutation {

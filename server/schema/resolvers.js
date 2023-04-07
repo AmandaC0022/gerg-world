@@ -2,7 +2,7 @@ const { Chronicle } = require('../models');
 
 const resolvers = {
     Query: {
-        chronicle: async () => {
+        getBlogs: async () => {
             return Chronicle.find({}); 
         }
     },

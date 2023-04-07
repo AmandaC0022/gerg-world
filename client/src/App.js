@@ -7,7 +7,7 @@ import Footer from './components/Footer';
 import Chronicles from './pages/Chronicles';
 
 const client = new ApolloClient({
-  uri:'/graphql', 
+  uri:'http://localhost:4000/graphql', 
   cache: new InMemoryCache(), 
 }); 
 

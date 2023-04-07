@@ -2,12 +2,11 @@ import image from "../images/dear dairy.png";
 import AddBlog from "../components/AddBlog";
 import Accordion from 'react-bootstrap/Accordion';
 import { useQuery } from '@apollo/client';
-import { QUERY_BLOG } from '../utils/queries';
+import { GET_BLOGS } from '../utils/queries';
 
 const Chronicles = () => {
-    const { loading, data } = useQuery(QUERY_BLOG); 
-    const blogList = data?.blog || []; 
-    console.log(blogList); 
+    const { loading, data } = useQuery(GET_BLOGS); 
+    const blogs = data.getBlogs;  
 
     return ( 
         <div>
