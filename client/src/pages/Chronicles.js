@@ -5,8 +5,9 @@ import { useQuery } from '@apollo/client';
 import { GET_BLOGS } from '../utils/queries';
 
 const Chronicles = () => {
-    const { loading, data } = useQuery(GET_BLOGS); 
-    const blogs = data.getBlogs;  
+    const { loading, data } = useQuery(GET_BLOGS);
+    const blogs = data?.getBlogs || []; 
+    console.log(blogs); 
 
     return ( 
         <div>
@@ -17,20 +18,33 @@ const Chronicles = () => {
                     <p>Ever wondered what all was going on in that silly mind of Gerg? Now is your chance. Below is a blog, fully written by Gerg himself.</p>
                 </div>
             </div>
-
-            <Accordion className="blogPostContainer" defaultActiveKey="0">
-                <Accordion.Item eventKey="0" className="blogPost">
-                    <Accordion.Header className="blogPostHeader">
-                        <h3>Blog Title</h3>
-                        <h4>11/12/22</h4>
-                    </Accordion.Header>
-                    <Accordion.Body>
-                        <p>
-                        Nap all day put toy mouse in food bowl run out of litter box at full speed , or find empty spot in cupboard and sleep all day for trip on catnip or claws in the eye of the beholder, for cattt catt cattty cat being a cat, reaches under door into adjacent room. Bury the poop bury it deep meow but poop on couch need to chase tail furrier and even more furrier hairball. Eat prawns daintily with a claw then lick paws clean wash down prawns with a lap of carnation milk then retire to the warmest spot on the couch to claw at the fabric before taking a catnap haha you hold me hooman I scratch yet get my claw stuck in the dog’s ear for decide to want nothing to do with my owner today lick butt and make a weird face and fat baby cat best buddy little guy. Nap all day put toy mouse in food bowl run out of litter box at full speed , or find empty spot in cupboard and sleep all day for trip on catnip or claws in the eye of the beholder, for cattt catt cattty cat being a cat, reaches under door into adjacent room.
-                        </p>
-                    </Accordion.Body>
-                </Accordion.Item>
-            </Accordion>
+            <div>
+                {blogs.map((blog) => {
+                    return (
+                    <div>
+                        <h2>{blog.title}</h2>
+                        <p>{blog.body}</p>
+                    </div>
+                    )
+                })}
+                {/* {loading ? (
+                    <div>Loading...</div>
+                ) : (
+                    <Accordion className="blogPostContainer" defaultActiveKey="0">
+                    {blogs.map((blog) => {
+                        <Accordion.Item eventKey="0" className="blogPost">
+                            <Accordion.Header className="blogPostHeader">
+                                <h3>{blog.title}</h3>
+                                <h4>11/12/22</h4>
+                            </Accordion.Header>
+                            <Accordion.Body>
+                                <p>{blog.body}</p>
+                            </Accordion.Body>
+                        </Accordion.Item>
+                    })}
+                    </Accordion>
+                )} */}
+            </div>
             <AddBlog/>
         </div>
      );
