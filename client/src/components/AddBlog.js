@@ -9,7 +9,7 @@ const AddBlog = () => {
     const [createBlog] = useMutation(CREATE_BLOG); 
 
     const handleSubmit = async (event) => {
-        event.preventDefault(); 
+        // event.preventDefault(); 
         try {
             await createBlog({
                 variables: { title: title, body: body }
@@ -32,6 +32,7 @@ const AddBlog = () => {
                 name="title" 
                 placeholder="Title"
                 value={title}
+                required
                 onChange={(e)=>{setTitle(e.target.value)}}
             />
             <br/>
@@ -39,6 +40,7 @@ const AddBlog = () => {
                 id="blogTextarea"
                 type="textarea" 
                 name="body" 
+                required
                 placeholder="Write Your Blog Here"
                 value={body}
                 onChange={(e)=>{setBody(e.target.value)}}

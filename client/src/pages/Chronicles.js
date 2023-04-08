@@ -19,31 +19,25 @@ const Chronicles = () => {
                 </div>
             </div>
             <div>
-                {blogs.map((blog) => {
-                    return (
-                    <div>
-                        <h2>{blog.title}</h2>
-                        <p>{blog.body}</p>
-                    </div>
-                    )
-                })}
                 {/* {loading ? (
                     <div>Loading...</div>
-                ) : (
-                    <Accordion className="blogPostContainer" defaultActiveKey="0">
+                ) : ( */}
                     {blogs.map((blog) => {
-                        <Accordion.Item eventKey="0" className="blogPost">
-                            <Accordion.Header className="blogPostHeader">
-                                <h3>{blog.title}</h3>
-                                <h4>11/12/22</h4>
-                            </Accordion.Header>
-                            <Accordion.Body>
-                                <p>{blog.body}</p>
-                            </Accordion.Body>
-                        </Accordion.Item>
+                        return (
+                            <Accordion className="blogPostContainer" defaultActiveKey="1">
+                                <Accordion.Item eventKey="0" className="blogPost">
+                                    <Accordion.Header className="blogPostHeader">
+                                        <h3>{blog.title}</h3>
+                                        <h4>11/12/22</h4>
+                                    </Accordion.Header>
+                                    <Accordion.Body>
+                                        <p>{blog.body}</p>
+                                    </Accordion.Body>
+                                </Accordion.Item>
+                            </Accordion>
+                        )
                     })}
-                    </Accordion>
-                )} */}
+                {/* )} */}
             </div>
             <AddBlog/>
         </div>
