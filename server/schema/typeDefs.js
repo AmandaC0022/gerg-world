@@ -5,6 +5,8 @@ const typeDefs = gql`
     _id: ID
     title: String
     body: String
+    createdAt: String
+    updatedAt: String
   }
 
   type Query {

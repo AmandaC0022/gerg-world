@@ -6,6 +6,8 @@ export const GET_BLOGS = gql`
       _id
       title
       body
+      createdAt
+      updatedAt
     }
   }
 `;
