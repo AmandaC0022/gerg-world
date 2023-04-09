@@ -3,7 +3,7 @@ import AddBlog from "../components/AddBlog";
 import Accordion from 'react-bootstrap/Accordion';
 import { useQuery } from '@apollo/client';
 import { GET_BLOGS } from '../utils/queries';
-import SimpleDateTime from 'react-simple-timestamp-to-date'; 
+import Timestamp from 'react-timestamp'; 
 
 const Chronicles = () => {
     const { loading, data } = useQuery(GET_BLOGS);
@@ -27,9 +27,19 @@ const Chronicles = () => {
                         return (
                             <Accordion className="blogPostContainer" defaultActiveKey="1">
                                 <Accordion.Item eventKey="0" className="blogPost">
-                                    <Accordion.Header className="blogPostHeader">
-                                        <h3>{blog.title}</h3>
-                                        <p><SimpleDateTime dateFormat="MDY" dateSeparator="/" timeSeparator=":">{blog.createdAt}</SimpleDateTime></p>
+                                <div className="iconContainer">
+                                    <span className="material-symbols-outlined">
+                                        edit
+                                    </span>
+                                    <span className="material-symbols-outlined deleteIcon">
+                                        delete
+                                    </span>
+                                </div>
+                                    <Accordion.Header>
+                                        <div>
+                                            <h3>{blog.title}</h3>
+                                            <Timestamp date={blog.createdAt} options={{ includeDay: true}}/> 
+                                        </div>
                                     </Accordion.Header>
                                     <Accordion.Body>
                                         <p>{blog.body}</p>

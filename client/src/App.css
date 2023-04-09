@@ -268,9 +268,6 @@ footer .links a {
   padding: 20px; 
   border-radius: 25px !important; 
 }
-.blogPostHeader h4{
-  margin-left: 20px;
-}
 .addBlogContainer {
   background-color: var(--lime);
   border-radius: 25px;
@@ -296,4 +293,17 @@ footer .links a {
   background-color: white;
   color:black; 
   box-shadow: none;
+}
+.deleteIcon {
+  color: red; 
+}
+.iconContainer {
+  display: flex; 
+  justify-content: flex-end;
+  flex-wrap: nowrap;  
+}
+@media screen and (max-width: 768px) {
+  .blogPostHeader {
+    flex-wrap:wrap; 
+  }
 }
