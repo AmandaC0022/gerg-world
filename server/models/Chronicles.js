@@ -1,4 +1,5 @@
 const { Schema, model } = require('mongoose'); 
+const dateFormat = require('../utils/dateFormat');
 
 //defines the structure of our Document
 const chroniclesSchema = new Schema({
@@ -9,8 +10,13 @@ const chroniclesSchema = new Schema({
     body: {
         type: String, 
         required: true
+    }, 
+    createdAt: {
+        type: Date, 
+        default: Date.now, 
+        get: (timestamp) => dateFormat(timestamp), 
     }
-}, { timestamps: true })
+})
 
 //creates a model and then allows us to manipulate the schema 
 const Chronicle = model('Chronicle', chroniclesSchema); 

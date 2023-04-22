@@ -38,7 +38,7 @@ const Chronicles = () => {
                                     <Accordion.Header>
                                         <div>
                                             <h3>{blog.title}</h3>
-                                            <Timestamp date={blog.createdAt} options={{ includeDay: true}}/> 
+                                            <p>{blog.createdAt}</p> 
                                         </div>
                                     </Accordion.Header>
                                     <Accordion.Body>

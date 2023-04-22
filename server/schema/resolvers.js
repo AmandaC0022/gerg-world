@@ -10,6 +10,10 @@ const resolvers = {
         createBlog: async (parent, args) => {
             const blog = await Chronicle.create(args); 
             return blog; 
+        }, 
+        deleteBlog: async (parent, { blogId }) => {
+            const blog = await Chronicle.findOneAndDelete({ _id: blogId }); 
+            return blog; 
         }
     }
 }
