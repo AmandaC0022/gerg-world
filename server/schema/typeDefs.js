@@ -15,7 +15,7 @@ const typeDefs = gql`
 
   type Mutation {
     createBlog(title: String!, body: String!): Chronicle
-    deleteBlog(blogId: ID!): Chroncile
+    deleteBlog(blogId: ID!): Chronicle
   }
 `;
 

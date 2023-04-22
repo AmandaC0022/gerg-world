@@ -11,9 +11,8 @@ const resolvers = {
             const blog = await Chronicle.create(args); 
             return blog; 
         }, 
-        deleteBlog: async (parent, { blogId }) => {
-            const blog = await Chronicle.findOneAndDelete({ _id: blogId }); 
-            return blog; 
+        deleteBlog: async (parent, { blog }) => {
+            return await Chronicle.findOneAndDelete({ _id: blog._id }); ç 
         }
     }
 }

@@ -2,13 +2,31 @@ import image from "../images/dear dairy.png";
 import AddBlog from "../components/AddBlog";
 import Accordion from 'react-bootstrap/Accordion';
 import { useQuery } from '@apollo/client';
+import { useMutation } from "@apollo/client";
 import { GET_BLOGS } from '../utils/queries';
-import Timestamp from 'react-timestamp'; 
+// import { DELETE_BLOG } from '../utils/mutations'; 
 
 const Chronicles = () => {
     const { loading, data } = useQuery(GET_BLOGS);
     const blogs = data?.getBlogs || []; 
     console.log(blogs); 
+
+// const [ deleteBlog, { error }] = useMutation(DELETE_BLOG)
+
+// const handleDeleteBlog = async (blog) => {
+//     try {
+//         const { data } = await deleteBlog({
+//             variables: { blog }, 
+//         })
+//     } catch (e) {
+//         console.log(e); 
+//     }
+// }
+// onClick={()=> handleDeleteBlog(blog)}
+{/* <span className="material-symbols-outlined deleteIcon">
+                                        delete
+                                    </span> */}
+
 
     return ( 
         <div>
@@ -30,9 +48,6 @@ const Chronicles = () => {
                                 <div className="iconContainer">
                                     <span className="material-symbols-outlined">
                                         edit
-                                    </span>
-                                    <span className="material-symbols-outlined deleteIcon">
-                                        delete
                                     </span>
                                 </div>
                                     <Accordion.Header>

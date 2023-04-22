@@ -6,6 +6,18 @@ export const CREATE_BLOG = gql`
       _id
       title
       body
+      createdAt
+    }
+  }
+`;
+
+export const DELETE_BLOG = gql`
+  mutation deleteBlog($blog: String!) {
+    deleteBlog(blog: $blog) {
+      _id
+      title
+      body
+      createdAt
     }
   }
 `;
