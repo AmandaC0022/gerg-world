@@ -11,6 +11,7 @@ const typeDefs = gql`
 
   type Query {
     getBlogs: [Chronicle]
+    getSingleBlog(blogId: ID!): Chronicle
   }
 
   type Mutation {

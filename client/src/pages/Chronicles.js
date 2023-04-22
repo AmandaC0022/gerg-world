@@ -2,9 +2,8 @@ import image from "../images/dear dairy.png";
 import AddBlog from "../components/AddBlog";
 import Accordion from 'react-bootstrap/Accordion';
 import { useQuery } from '@apollo/client';
-import { useMutation } from "@apollo/client";
 import { GET_BLOGS } from '../utils/queries';
-// import { DELETE_BLOG } from '../utils/mutations'; 
+import { Link } from "react-router-dom";
 
 const Chronicles = () => {
     const { loading, data } = useQuery(GET_BLOGS);
@@ -46,9 +45,11 @@ const Chronicles = () => {
                             <Accordion className="blogPostContainer" defaultActiveKey="1">
                                 <Accordion.Item eventKey="0" className="blogPost">
                                 <div className="iconContainer">
-                                    <span className="material-symbols-outlined">
-                                        edit
-                                    </span>
+                                    <Link to={`/chronicles/${blog._id}`}>
+                                        <span className="material-symbols-outlined">
+                                            edit
+                                        </span>
+                                    </Link>
                                 </div>
                                     <Accordion.Header>
                                         <div>

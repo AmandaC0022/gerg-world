@@ -4,6 +4,9 @@ const resolvers = {
     Query: {
         getBlogs: async () => {
             return Chronicle.find({}); 
+        }, 
+        getSingleBlog: async (parent, { blogId }) => {
+            return Chronicle.findOne({ _id: blogId })
         }
     },
     Mutation: {
@@ -11,8 +14,8 @@ const resolvers = {
             const blog = await Chronicle.create(args); 
             return blog; 
         }, 
-        deleteBlog: async (parent, { blog }) => {
-            return await Chronicle.findOneAndDelete({ _id: blog._id }); ç 
+        deleteBlog: async (parent, { blogId }) => {
+            return await Chronicle.findOneAndDelete({ _id: blogId }); ç 
         }
     }
 }

@@ -7,7 +7,17 @@ export const GET_BLOGS = gql`
       title
       body
       createdAt
-      updatedAt
+    }
+  }
+`;
+
+export const GET_SINGLE_BLOG = gql`
+  query singleBlogs($blogId: ID!) {
+    blog(blogId: $blogId) {
+      _id
+      title
+      body
+      createdAt
     }
   }
 `;
