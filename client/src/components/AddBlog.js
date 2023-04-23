@@ -25,7 +25,7 @@ const AddBlog = () => {
 
     return ( 
     <div className="addBlogContainer">
-        <h2>Add a Post</h2>
+        <h2>Add a Blog</h2>
         <form onSubmit={handleSubmit}>
             <input 
                 type="text" 
