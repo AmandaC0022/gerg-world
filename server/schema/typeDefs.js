@@ -11,12 +11,13 @@ const typeDefs = gql`
 
   type Query {
     getBlogs: [Chronicle]
-    getSingleBlog(blogId: ID!): Chronicle
+    findBlog(id: ID!): Chronicle
   }
 
   type Mutation {
     createBlog(title: String!, body: String!): Chronicle
-    deleteBlog(blogId: ID!): Chronicle
+    deleteBlog(id: ID!): Chronicle
+    updateBlog(id: ID, title: String, body: String): Chronicle
   }
 `;
 

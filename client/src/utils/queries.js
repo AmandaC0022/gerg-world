@@ -11,8 +11,8 @@ export const GET_BLOGS = gql`
   }
 `;
 
-export const GET_SINGLE_BLOG = gql`
-  query singleBlogs($blogId: ID!) {
+export const FIND_BLOG = gql`
+  query findBlog($blogId: ID!) {
     blog(blogId: $blogId) {
       _id
       title

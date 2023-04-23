@@ -1,11 +1,10 @@
 import { Redirect, useParams } from 'react-router-dom';
 import { useQuery } from '@apollo/client';
-import { QUERY_SINGLE_BLOG } from '../utils/queries';
+import { FIND_BLOG } from '../utils/queries';
 
 const Chronicle = () => {
-    const { loading, data } = useQuery(GET_BLOGS);
-    const blogs = data?.getBlogs || []; 
-    console.log(blogs); 
+    const { loading, data } = useQuery(FIND_BLOG);
+    console.log(data); 
 
 // const [ deleteBlog, { error }] = useMutation(DELETE_BLOG)
 
@@ -32,10 +31,10 @@ const Chronicle = () => {
                     </span>
             </div>
                 <div>
-                    <h3>{blog.title}</h3>
-                    <p>{blog.createdAt}</p> 
+                    <h3>{data.title}</h3>
+                    <p>{data.createdAt}</p> 
                 </div>
-                <p>{blog.body}</p>
+                <p>{data.body}</p>
         </div>
      );
 }

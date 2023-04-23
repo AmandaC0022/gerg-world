@@ -5,17 +5,29 @@ const resolvers = {
         getBlogs: async () => {
             return Chronicle.find({}); 
         }, 
-        getSingleBlog: async (parent, { blogId }) => {
-            return Chronicle.findOne({ _id: blogId })
+        findBlog: async (parent, args) => {
+            return await Chronicle.findById(args.id);
         }
     },
     Mutation: {
         createBlog: async (parent, args) => {
-            const blog = await Chronicle.create(args); 
-            return blog; 
+            return await Chronicle.create(args); 
         }, 
-        deleteBlog: async (parent, { blogId }) => {
-            return await Chronicle.findOneAndDelete({ _id: blogId }); ç 
+        deleteBlog: async (parent, args ) => {
+            const { id } = args; 
+            const deletedBlog = await Chronicle.findByIdAndDelete(id); 
+            if (!deletedBlog) {
+                throw new Error(`Blog with ID ${id} is not found.`); 
+            }
+            return deletedBlog; 
+        },
+        updateBlog: async (parent, args) => {
+            const { id } = args; 
+            const updatedBlog = await Chronicle.findByIdAndUpdate(id, args);
+            if (!updatedBlog) {
+                throw new Error(`Blog with ID ${id} is not found.`); 
+            } 
+            return updatedBlog; 
         }
     }
 }
