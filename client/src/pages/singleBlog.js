@@ -3,38 +3,38 @@ import { useQuery } from '@apollo/client';
 import { FIND_BLOG } from '../utils/queries';
 
 const Chronicle = () => {
-    const { loading, data } = useQuery(FIND_BLOG);
-    console.log(data); 
+    const { blogId } = useParams(); 
+    console.log(blogId); 
 
-// const [ deleteBlog, { error }] = useMutation(DELETE_BLOG)
+    const { loading, data, error } = useQuery(FIND_BLOG, {
+        variables: { 
+            id: blogId,  
+        } 
+    }); 
 
-// const handleDeleteBlog = async (blog) => {
-//     try {
-//         const { data } = await deleteBlog({
-//             variables: { blog }, 
-//         })
-//     } catch (e) {
-//         console.log(e); 
-//     }
-// }
-// onClick={()=> handleDeleteBlog(blog)}
-{/* <span className="material-symbols-outlined deleteIcon">
-                                        delete
-                                    </span> */}
+    const blog = data.findBlog; 
 
+    if (loading) {
+        return <div>Loading...</div>; 
+    }
+    if (error) {
+        return <div>{error.message}</div>
+    }
 
     return ( 
-        <div className="blogPostContainer" >           
-            <div className="iconContainer">
-                    <span className="material-symbols-outlined">
-                        delete
-                    </span>
-            </div>
-                <div>
-                    <h3>{data.title}</h3>
-                    <p>{data.createdAt}</p> 
+        <div className="blogPostContainer">
+            <div className="blogPost">
+                <div className="iconContainer">
+                        <span className="material-symbols-outlined">
+                            delete
+                        </span>
                 </div>
-                <p>{data.body}</p>
+                <div>
+                    <h3>{blog.title}</h3>
+                    <p>{blog.createdAt}</p> 
+                </div>
+                <p>{blog.body}</p>
+            </div>           
         </div>
      );
 }
