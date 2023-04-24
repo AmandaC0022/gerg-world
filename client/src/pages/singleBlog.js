@@ -1,4 +1,4 @@
-import { Redirect, useParams } from 'react-router-dom';
+import { useNavigate, useParams, Link } from 'react-router-dom';
 import { useQuery, useMutation } from '@apollo/client';
 import { useState } from "react"; 
 import { FIND_BLOG } from '../utils/queries';
@@ -12,24 +12,33 @@ const Chronicle = () => {
             id: blogId,  
         } 
     }); 
-    console.log(data); 
+
     const [title, setTitle] = useState(''); 
     const [body, setBody] = useState(''); 
 
+    // Handle Updating the Blog 
+    const [updateBlog] = useMutation(UPDATE_BLOG); 
+
     const handleSubmit = async (event) => {
-        // // event.preventDefault(); 
-        // try {
-        //     await createBlog({
-        //         variables: { title: title, body: body }
-        //     })
-        //     console.log(`Blog was created Title:${title}, Body:${body}`); 
-        // } catch (err) {
-        //     console.log(err); 
-        // }
-    
-        // setTitle(''); 
-        // setBody(''); 
-    }
+        event.preventDefault(); 
+        console.log(blogId); 
+        try {
+            await updateBlog({
+                variables: { body: body, title: title, id:blogId }
+            })
+            console.log(`Blog ${blogId} has been updated.`); 
+            window.location = "/chronicles"; 
+        } catch (err) {
+            console.log(err); 
+        }
+      }; 
+
+    //Handling Deleting the Blog 
+    const [deleteBlog] = useMutation(DELETE_BLOG); 
+
+    const handleDelete = async () => {
+        console.log(`I would like to delete this blog ${blogId}`); 
+    }; 
 
     if (loading) {
         return <div>Loading...</div>; 
@@ -40,19 +49,19 @@ const Chronicle = () => {
 
     return ( 
         <div className="addBlogContainer">
-            <div className="blogPost">
+            <div>
+            <div className="iconContainer">
+                <span className="material-symbols-outlined deleteIcon" onClick={handleDelete}>
+                    delete
+                </span>
+            </div>
             <h2>Edit Your Blog</h2>
-                <div className="iconContainer">
-                        <span className="material-symbols-outlined">
-                            delete
-                        </span>
-                </div>
-                <form onSubmit={handleSubmit}>
+            <form onSubmit={handleSubmit}>
             <input 
                 type="text" 
                 name="title" 
                 placeholder={data.findBlog.title}
-                value={data.findBlog.title}
+                value={title}
                 required
                 onChange={(e)=>{setTitle(e.target.value)}}
             />
@@ -63,7 +72,7 @@ const Chronicle = () => {
                 name="body" 
                 required
                 placeholder={data.findBlog.body}
-                value={data.findBlog.body}
+                value={body}
                 onChange={(e)=>{setBody(e.target.value)}}
             />
             <br/>
