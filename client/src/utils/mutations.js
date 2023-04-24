@@ -12,8 +12,8 @@ export const CREATE_BLOG = gql`
 `;
 
 export const DELETE_BLOG = gql`
-  mutation deleteBlog($blog: String!) {
-    deleteBlog(blog: $blog) {
+  mutation deleteBlog($id: ID!) {
+    deleteBlog(id: $id) {
       _id
       title
       body

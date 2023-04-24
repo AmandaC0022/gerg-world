@@ -36,8 +36,17 @@ const Chronicle = () => {
     //Handling Deleting the Blog 
     const [deleteBlog] = useMutation(DELETE_BLOG); 
 
-    const handleDelete = async () => {
-        console.log(`I would like to delete this blog ${blogId}`); 
+    const handleDelete = async (event) => {
+        event.preventDefault(); 
+        try {
+            await deleteBlog({
+                variables: { id: blogId }
+            })
+            console.log(`Blog has been deleted.`)
+            window.location="/chronicles"
+        } catch (err) {
+            console.log(err); 
+        }
     }; 
 
     if (loading) {
