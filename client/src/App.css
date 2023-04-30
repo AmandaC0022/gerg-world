@@ -144,6 +144,9 @@ footer .links a {
 .cloud-container {
   position: relative;  
 }
+.cloud-container:hover {
+  cursor:pointer; 
+}
 .cloud {
   width: 300px;  
 }
@@ -336,4 +339,11 @@ footer .links a {
 }
 #blogTextarea {
   height:100px; 
+}
+.popUpContainer {
+  background-color: var(--lime);
+  border-radius: 25px;
+  box-shadow: var(--shadow);
+  padding: 20px; 
+  width: 90%; 
 }
