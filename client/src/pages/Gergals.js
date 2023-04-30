@@ -3,6 +3,7 @@ import cloud from "../images/cloud.png";
 import AddGergal from '../components/addGergal'; 
 import Modal from 'react-bootstrap/Modal'; 
 import { useState } from 'react'; 
+import { Link } from "react-router-dom";
 
 const Gergals = () => {
     const [show, setShow] = useState(false);
@@ -21,15 +22,17 @@ const Gergals = () => {
             <Modal show={show} onHide={handleShow} centered size="lg">
                 <Modal.Dialog className="popUpContainer">
                     <Modal.Header>
-                        <h3> "Gerg"alo</h3>
+                        <h3>"Gerg"alo</h3>
                     </Modal.Header>
                     <Modal.Body>
                         <p>Faster than a speeding pushmower, more powerful than 10 year old Chevy equipment, able to leap tall grass in a single bound. It’s a bird! It’s a plane! NO! It’s a “GERG”ALO!!!</p>
                     </Modal.Body>
                     <Modal.Footer>
-                        <span className="material-symbols-outlined">
-                            edit
-                        </span>
+                        <Link to="/gergals/123" >
+                            <span className="material-symbols-outlined">
+                                edit
+                            </span>
+                        </Link>
                         <button className="customButton" onClick={handleClose}>
                             Close
                         </button>

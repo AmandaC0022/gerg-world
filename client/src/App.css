@@ -279,12 +279,13 @@ footer .links a {
   margin: 30px 0px; 
   text-align: center;
 }
-.addBlogContainer form input {
+.addBlogContainer form input, .addBlogContainer form textarea {
   background-color: white; 
   border-radius: 25px;
   padding: 10px; 
   margin: 10px; 
   width: 90%; 
+  border: solid 2px black; 
 }
 #blogTextarea {
   height:100px; 
@@ -330,12 +331,13 @@ footer .links a {
   margin: 30px 0px; 
   text-align: center;
 }
-.addWordContainer form input {
+.addWordContainer form input, .addWordContainer form textarea {
   background-color: white; 
   border-radius: 25px;
   padding: 10px; 
   margin: 10px; 
   width: 90%; 
+  border: solid 2px black; 
 }
 #blogTextarea {
   height:100px; 

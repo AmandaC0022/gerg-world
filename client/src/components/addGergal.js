@@ -31,13 +31,13 @@ const AddGergal = () => {
             <input 
                 type="text" 
                 name="title" 
-                placeholder="Title"
+                placeholder="Name"
                 // value={title}
                 required
                 // onChange={(e)=>{setTitle(e.target.value)}}
             />
             <br/>
-            <input 
+            <textarea 
                 id="blogTextarea"
                 type="textarea" 
                 name="body" 

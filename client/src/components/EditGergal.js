@@ -2,7 +2,7 @@ import { useState } from "react";
 import { useMutation } from '@apollo/client';
 // import { CREATE_BLOG } from '../utils/mutations';
 
-const SingleGergal = () => {
+const EditGergal = () => {
     // const [title, setTitle] = useState(''); 
     // const [body, setBody] = useState(''); 
 
@@ -26,23 +26,23 @@ const SingleGergal = () => {
 
     return ( 
     <div className="addWordContainer">
-        <h2>Add a Gergal</h2>
+        <h2>Edit a Gergal</h2>
         <form>
             <input 
                 type="text" 
                 name="title" 
-                placeholder="Title"
+                placeholder='"Gerg"alo'
                 // value={title}
                 required
                 // onChange={(e)=>{setTitle(e.target.value)}}
             />
             <br/>
-            <input 
+            <textarea 
                 id="blogTextarea"
                 type="textarea" 
-                name="body" 
+                name="definition" 
                 required
-                placeholder="Write Your Blog Here"
+                placeholder="Faster than a speeding pushmower, more powerful than 10 year old Chevy equipment, able to leap tall grass in a single bound. It’s a bird! It’s a plane! NO! It’s a “GERG”ALO!!!"
                 // value={body}
                 // onChange={(e)=>{setBody(e.target.value)}}
             />
@@ -53,4 +53,4 @@ const SingleGergal = () => {
      );
 }
  
-export default SingleGergal;
+export default EditGergal;

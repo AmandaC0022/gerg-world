@@ -36,9 +36,11 @@ const AddBlog = () => {
                 onChange={(e)=>{setTitle(e.target.value)}}
             />
             <br/>
-            <input 
+            <textarea 
                 id="blogTextarea"
                 type="textarea" 
+                wrap="hard"
+                cols="90"
                 name="body" 
                 required
                 placeholder="Write Your Blog Here"

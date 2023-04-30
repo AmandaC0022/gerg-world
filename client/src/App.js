@@ -7,7 +7,7 @@ import Footer from './components/Footer';
 import Chronicles from './pages/Chronicles';
 import SingleBlog from './pages/singleBlog'; 
 import Gergals from './pages/Gergals'; 
-import SingleGergal from './components/SingleGergal'; 
+import EditGergal from './components/EditGergal'; 
 
 const client = new ApolloClient({
   uri:'http://localhost:4000/graphql', 
@@ -25,7 +25,7 @@ function App() {
             <Route path="/chronicles" element={<Chronicles/>}/>
             <Route path='/chronicles/:blogId' element={<SingleBlog/>}/>
             <Route path="/gergals" element={<Gergals/>}/>
-            <Route path="/gergals/:gergalId" element={<SingleGergal/>}/>
+            <Route path="/gergals/:gergalId" element={<EditGergal/>}/>
             {/* <Route path="/gergatizer" element={<Gergatizers/>}/>
             <Route path="/gergisms" element={<Gergisms/>}/>
             <Route path="/faces" element={<FacesOfGerg/>}/>
