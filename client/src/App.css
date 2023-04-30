@@ -319,3 +319,21 @@ footer .links a {
   flex-wrap: wrap;
   flex-direction: row;
 }
+.addWordContainer {
+  background-color: var(--orange);
+  border-radius: 25px;
+  box-shadow: var(--shadow);
+  padding: 20px; 
+  margin: 30px 0px; 
+  text-align: center;
+}
+.addWordContainer form input {
+  background-color: white; 
+  border-radius: 25px;
+  padding: 10px; 
+  margin: 10px; 
+  width: 90%; 
+}
+#blogTextarea {
+  height:100px; 
+}

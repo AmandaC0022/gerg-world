@@ -1,5 +1,6 @@
 import image from "../images/blah blah blah.png"; 
 import cloud from "../images/cloud.png"; 
+import AddGergal from '../components/addGergal'; 
 
 const Gergals = () => {
     return ( 
@@ -26,6 +27,7 @@ const Gergals = () => {
                     <h3 className="cloud-overlay">"Gerg"atude</h3>
                 </div>
             </div>
+            <AddGergal/>
         </div>
      );
 }
