@@ -142,10 +142,10 @@ footer .links a {
   margin: 20px; 
 }
 .cloud-container {
-  position: relative; 
+  position: relative;  
 }
 .cloud {
-  width: 80%; 
+  width: 300px;  
 }
 .cloud-overlay {
   position:absolute; 
@@ -309,4 +309,13 @@ footer .links a {
   .blogPostHeader {
     flex-wrap:wrap; 
   }
+}
+
+/* GERGALS */
+.clouds {
+  display: flex; 
+  justify-content: space-evenly;
+  align-items: center;
+  flex-wrap: wrap;
+  flex-direction: row;
 }

@@ -1,4 +1,4 @@
-import { useNavigate, useParams, Link } from 'react-router-dom';
+import { useParams } from 'react-router-dom';
 import { useQuery, useMutation } from '@apollo/client';
 import { useState } from "react"; 
 import { FIND_BLOG } from '../utils/queries';
@@ -10,7 +10,7 @@ const Chronicle = () => {
     const { loading, data, error } = useQuery(FIND_BLOG, {
         variables: { 
             id: blogId,  
-        } 
+        }
     }); 
 
     const [title, setTitle] = useState(''); 
@@ -48,18 +48,17 @@ const Chronicle = () => {
             console.log(err); 
         }
     }; 
-
-    if (loading) {
-        return <div>Loading...</div>; 
-    }
     if (error) {
         return <div>{error.message}</div>
     }
 
     return ( 
         <div className="addBlogContainer">
-            <div>
-            <div className="iconContainer">
+            {loading ? (
+                <div>Loading...</div>
+            ) : (
+                <div>
+                <div className="iconContainer">
                 <span className="material-symbols-outlined deleteIcon" onClick={handleDelete}>
                     delete
                 </span>
@@ -86,8 +85,9 @@ const Chronicle = () => {
             />
             <br/>
             <button className="customButton" type="submit">Done!</button>
-        </form>
-            </div>           
+        </form>     
+        </div>      
+        )}
         </div>
      );
 }
