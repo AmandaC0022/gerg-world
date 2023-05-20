@@ -26,6 +26,11 @@ const EditGergal = () => {
 
     return ( 
     <div className="addWordContainer">
+        <div className="iconContainer">
+                <span className="material-symbols-outlined deleteIcon">
+                    delete
+                </span>
+        </div>
         <h2>Edit a Gergal</h2>
         <form>
             <input 

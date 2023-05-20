@@ -1,4 +1,5 @@
 const { Chronicle } = require('../models'); 
+const { Gergal } = require('../models'); 
 
 const resolvers = {
     Query: {
@@ -7,6 +8,12 @@ const resolvers = {
         }, 
         findBlog: async (parent, args) => {
             return await Chronicle.findById(args.id);
+        }, 
+        findGergals: async () => {
+            return Gergal.find({}); 
+        }, 
+        findGergal: async(parent, args) => {
+            return await Gergal.findById(args.id); 
         }
     },
     Mutation: {
@@ -28,6 +35,25 @@ const resolvers = {
                 throw new Error(`Blog with ID ${id} is not found.`); 
             } 
             return updatedBlog; 
+        }, 
+        createGergal: async (parent, args) => {
+            return await Gergal.create(args); 
+        }, 
+        deleteGergal: async (parent, args ) => {
+            const { id } = args; 
+            const deleteGergal = await Gergal.findByIdAndDelete(id); 
+            if (!deleteGergal) {
+                throw new Error(`Gergal with ID ${id} is not found.`); 
+            }
+            return deleteGergal; 
+        },
+        updateGergal: async (parent, args) => {
+            const { id } = args; 
+            const updatedGergal = await Gergal.findByIdAndUpdate(id, args);
+            if (!updatedGergal) {
+                throw new Error(`Gergal with ID ${id} is not found.`); 
+            } 
+            return updatedGergal; 
         }
     }
 }

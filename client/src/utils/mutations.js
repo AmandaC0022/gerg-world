@@ -32,3 +32,36 @@ export const UPDATE_BLOG = gql`
     }
   }
 `;
+
+export const CREATE_GERGAL = gql`
+  mutation createGergal($word: String!, $definition: String!) {
+    createGergal(word: $word, definiton: $definition) {
+      _id
+      word
+      definition
+      createdAt
+    }
+  }
+`;
+
+export const UPDATE_GERGAL = gql`
+  mutation updateGergal($word: String $definition: String, $id: ID) {
+    updateGergal(word: $word, definition: $definition, id:$id) {
+      _id
+      word
+      definition
+      createdAt
+    }
+  }
+`;
+
+export const DELETE_GERGAL = gql`
+  mutation deleteGergal($id: ID!) {
+    deleteGergal(id: $id) {
+      _id
+      word
+      definition
+      createdAt
+    }
+  }
+`;

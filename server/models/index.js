@@ -1,3 +1,4 @@
 const Chronicle = require('./Chronicles');
+const Gergal = require('./Gergals'); 
 
-module.exports = { Chronicle };
+module.exports = { Chronicle, Gergal };
