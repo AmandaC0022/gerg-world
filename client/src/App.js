@@ -7,7 +7,7 @@ import Footer from './components/Footer';
 import Chronicles from './pages/Chronicles';
 import SingleBlog from './pages/singleBlog'; 
 import Gergals from './pages/Gergals'; 
-import EditGergal from './components/EditGergal'; 
+import EditGergal from './pages/EditGergal'; 
 
 const client = new ApolloClient({
   uri:'http://localhost:4000/graphql', 

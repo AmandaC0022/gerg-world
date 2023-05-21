@@ -16,6 +16,14 @@ const Chronicle = () => {
     const [title, setTitle] = useState(''); 
     const [body, setBody] = useState(''); 
 
+
+    // setTitle(data.findBlog.title); 
+    // setBody(data.findBlog.body); 
+
+    // if (error) {
+    //     console.log(error); 
+    // }
+
     // Handle Updating the Blog 
     const [updateBlog] = useMutation(UPDATE_BLOG); 
 
@@ -48,9 +56,15 @@ const Chronicle = () => {
             console.log(err); 
         }
     }; 
-    if (error) {
-        return <div>{error.message}</div>
-    }
+    
+    // const handleTitleChange = (event) => {
+    //     event.preventDefault(); 
+    //     if (title = event.target.value) {
+    //         setTitle(title); 
+    //     } else {
+    //         setTitle(event.target.value); 
+    //     }
+    // }
 
     return ( 
         <div className="addBlogContainer">
@@ -68,10 +82,10 @@ const Chronicle = () => {
             <input 
                 type="text" 
                 name="title" 
-                placeholder={data.findBlog.title}
-                value={title}
+                // placeholder={title}
+                defaultValue={data.findBlog.title}
                 required
-                onChange={(e)=>{setTitle(e.target.value)}}
+                onChange={e => setTitle(e.target.value)}
             />
             <br/>
             <input 
@@ -79,9 +93,9 @@ const Chronicle = () => {
                 type="textarea" 
                 name="body" 
                 required
-                placeholder={data.findBlog.body}
-                value={body}
-                onChange={(e)=>{setBody(e.target.value)}}
+                // placeholder={body} 
+                defaultValue={data.findBlog.body}
+                onChange={e => setBody(e.target.value)}
             />
             <br/>
             <button className="customButton" type="submit">Done!</button>

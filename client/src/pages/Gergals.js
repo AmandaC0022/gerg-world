@@ -14,7 +14,7 @@ const Gergals = () => {
     //find all gergals
     const { data: gergals } = useQuery(FIND_GERGALS); 
     const allGergals = gergals?.findGergals || []; 
-    console.log(allGergals); 
+    // console.log(allGergals); 
 
     //saves each Gergal ID into a variable to use 
     const [wordId, setWordId ] = useState(''); 
@@ -41,7 +41,6 @@ const Gergals = () => {
         //saves it within variables to be used 
         setWord(res.data.findGergal.word); 
         setDefinition(res.data.findGergal.definition); 
-        console.log(word, definition); 
     }
 
     // find 1 gergal by ID
@@ -67,7 +66,7 @@ const Gergals = () => {
             <div className="clouds">
                 {allGergals.map((gergal) => {
                     return (
-                        <div className="cloud-container" onClick={handleClick} id={gergal._id}>
+                        <div className="cloud-container" onClick={handleClick} id={gergal._id} key={gergal.id}>
                             <img className="cloud" src={cloud} alt="thought cloud" id={gergal._id}/>
                             <h3 className="cloud-overlay" id={gergal._id}>{gergal.word}</h3>
                         </div>
@@ -83,7 +82,7 @@ const Gergals = () => {
                         <p>{definition}</p>
                     </Modal.Body>
                     <Modal.Footer>
-                        <Link to="/gergals/123">
+                        <Link to={`/gergals/${wordId}`}>
                             <span className="material-symbols-outlined">
                                 edit
                             </span>
