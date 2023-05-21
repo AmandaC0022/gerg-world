@@ -1,50 +1,49 @@
 import { useState } from "react"; 
 import { useMutation } from '@apollo/client';
-// import { CREATE_BLOG } from '../utils/mutations';
+import { CREATE_GERGAL } from '../utils/mutations';
 
 const AddGergal = () => {
-    // const [title, setTitle] = useState(''); 
-    // const [body, setBody] = useState(''); 
+    const [word, setWord] = useState(''); 
+    const [definition, setDefinition] = useState(''); 
 
-    // const [createBlog] = useMutation(CREATE_BLOG); 
+    const [createGergal] = useMutation(CREATE_GERGAL); 
 
-    // const handleSubmit = async (event) => {
-    //     // event.preventDefault(); 
-    //     try {
-    //         await createBlog({
-    //             variables: { title: title, body: body }
-    //         })
-    //         console.log(`Blog was created Title:${title}, Body:${body}`); 
-    //     } catch (err) {
-    //         console.log(err); 
-    //     }
+    const handleSubmit = async (event) => {
+        // event.preventDefault(); 
+        try {
+            await createGergal({
+                variables: { word: word, definition: definition }
+            })
+            console.log(`Gergal was created Word:${word}, Definition:${definition}`); 
+        } catch (err) {
+            console.log(err); 
+        }
     
-    //     setTitle(''); 
-    //     setBody(''); 
-    // }
-    // onSubmit={handleSubmit}
+        setWord(''); 
+        setDefinition(''); 
+    }
 
     return ( 
     <div className="addWordContainer">
         <h2>Add a Gergal</h2>
-        <form>
+        <form onSubmit={handleSubmit}>
             <input 
                 type="text" 
-                name="title" 
-                placeholder="Name"
-                // value={title}
+                name="word" 
+                placeholder="Word"
+                value={word}
                 required
-                // onChange={(e)=>{setTitle(e.target.value)}}
+                onChange={(e)=>{setWord(e.target.value)}}
             />
             <br/>
             <textarea 
                 id="blogTextarea"
                 type="textarea" 
-                name="body" 
+                name="definition" 
                 required
-                placeholder="Write Your Blog Here"
-                // value={body}
-                // onChange={(e)=>{setBody(e.target.value)}}
+                placeholder="Write Your Definition Here"
+                value={definition}
+                onChange={(e)=>{setDefinition(e.target.value)}}
             />
             <br/>
             <button className="customButton" type="submit">Done!</button>

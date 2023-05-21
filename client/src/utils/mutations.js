@@ -35,7 +35,7 @@ export const UPDATE_BLOG = gql`
 
 export const CREATE_GERGAL = gql`
   mutation createGergal($word: String!, $definition: String!) {
-    createGergal(word: $word, definiton: $definition) {
+    createGergal(word: $word, definition: $definition) {
       _id
       word
       definition

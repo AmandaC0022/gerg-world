@@ -21,3 +21,25 @@ export const FIND_BLOG = gql`
     }
   }
 `;
+
+export const FIND_GERGAL = gql`
+  query findGergal($id: ID!) {
+    findGergal(id: $id) {
+      _id
+      word
+      definition
+      createdAt
+    }
+  }
+`;
+
+export const FIND_GERGALS = gql`
+  query findGergals {
+    findGergals {
+      _id
+      word
+      definition
+      createdAt
+    }
+  }
+`;
