@@ -5,7 +5,7 @@ import Homepage from './pages/Homepage';
 import Navbar from "./components/Navbar"; 
 import Footer from './components/Footer';
 import Chronicles from './pages/Chronicles';
-import SingleBlog from './pages/singleBlog'; 
+import EditBlog from './pages/EditBlog'; 
 import Gergals from './pages/Gergals'; 
 import EditGergal from './pages/EditGergal'; 
 
@@ -23,7 +23,7 @@ function App() {
           <Routes>
             <Route path="/" element={<Homepage/>}/> 
             <Route path="/chronicles" element={<Chronicles/>}/>
-            <Route path='/chronicles/:blogId' element={<SingleBlog/>}/>
+            <Route path='/chronicles/:blogId' element={<EditBlog/>}/>
             <Route path="/gergals" element={<Gergals/>}/>
             <Route path="/gergals/:gergalId" element={<EditGergal/>}/>
             {/* <Route path="/gergatizer" element={<Gergatizers/>}/>

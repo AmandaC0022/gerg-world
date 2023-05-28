@@ -22,10 +22,10 @@ const Chronicles = () => {
         <div>
             {blogs.map((blog) => {
                 return (
-                    <Accordion className="blogPostContainer" defaultActiveKey="1">
+                    <Accordion className="blogPostContainer" defaultActiveKey="1" key={blog._id}>
                         <Accordion.Item eventKey="0" className="blogPost">
                         <div className="iconContainer">
-                            <Link to={`/chronicles/${blog._id}`} element="">
+                            <Link to={`/chronicles/${blog._id}`}>
                                 <span className="material-symbols-outlined">
                                     edit
                                 </span>
