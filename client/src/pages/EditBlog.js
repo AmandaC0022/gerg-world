@@ -1,6 +1,6 @@
 import { useParams } from 'react-router-dom';
 import { useQuery, useMutation } from '@apollo/client';
-import { useState, useEffect, useRef } from "react"; 
+import { useState } from "react"; 
 import { FIND_BLOG } from '../utils/queries';
 import { DELETE_BLOG, UPDATE_BLOG } from '../utils/mutations'; 
 import Modal from 'react-bootstrap/Modal'; 
@@ -52,7 +52,7 @@ const EditBlog = () => {
         throw Error('Title was not changed. Please change before submitting the form.'); 
     }; 
     const handleBodyError = async () => { 
-        throw Error('Body was not change. Please change before submitting the form.'); 
+        throw Error('Body was not changed. Please change before submitting the form.'); 
     };
     
     const handleDelete = async (event) => {
@@ -66,11 +66,6 @@ const EditBlog = () => {
         } catch (err) {
             console.log(err); 
         }
-    }; 
-
-    const handleTitleChange = (event) => {
-        event.preventDefault(); 
-        setTitle(event.target.value); 
     }; 
 
     if (error) {
@@ -99,7 +94,7 @@ const EditBlog = () => {
                 // ref={data.findBlog.title} 
                 defaultValue={data.findBlog.title}
                 required
-                onChange={handleTitleChange}
+                onChange={e => setTitle(e.target.value)}
             />
             <br/>
             <input 
