@@ -45,7 +45,7 @@ export const CREATE_GERGAL = gql`
 `;
 
 export const UPDATE_GERGAL = gql`
-  mutation updateGergal($word: String $definition: String, $id: ID) {
+  mutation updateGergal($word: String, $definition: String, $id: ID) {
     updateGergal(word: $word, definition: $definition, id:$id) {
       _id
       word
@@ -61,6 +61,36 @@ export const DELETE_GERGAL = gql`
       _id
       word
       definition
+      createdAt
+    }
+  }
+`;
+
+export const CREATE_GERGISM = gql`
+  mutation CreateGergism($phrase: String!) {
+    createGergism(phrase: $phrase) {
+      _id
+      phrase
+      createdAt
+    }
+  }
+`;
+
+export const UPDATE_GERGISM = gql`
+  mutation updateGergism($phrase: String $id: ID) {
+    updateGergism(phrase: $phrase, id:$id) {
+      _id
+      phrase
+      createdAt
+    }
+  }
+`;
+
+export const DELETE_GERGISM = gql`
+  mutation deleteGergism($id: ID!) {
+    deleteGergism(id: $id) {
+      _id
+      phrase
       createdAt
     }
   }

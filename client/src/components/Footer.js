@@ -13,7 +13,7 @@ const Footer = () => {
                     <Link className="hover-underline-animation" to="/chronicles">"GERG"CHRONICLES</Link>
                     <Link className="hover-underline-animation" to="/gergals">"GERG"ALS</Link>
                     <Link className="hover-underline-animation" to="/">"GERG"ATIZERS</Link>
-                    <Link className="hover-underline-animation" to="/">"GERG"ISMS</Link>
+                    <Link className="hover-underline-animation" to="/gergisms">"GERG"ISMS</Link>
                     <Link className="hover-underline-animation" to="/">FACES OF "GERG"</Link>
                     <Link className="hover-underline-animation" to="/">SHOP A "GERG"</Link>
                 </div>

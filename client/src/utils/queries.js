@@ -43,3 +43,23 @@ export const FIND_GERGALS = gql`
     }
   }
 `;
+
+export const FIND_GERGISMS = gql`
+  query findGergisms {
+    findGergisms {
+      _id
+      phrase
+      createdAt
+    }
+  }
+`;
+
+export const FIND_GERGISM = gql`
+  query findGergism($id: ID!) {
+    findGergism(id: $id) {
+      _id
+      phrase
+      createdAt
+    }
+  }
+`;
