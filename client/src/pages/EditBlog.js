@@ -48,11 +48,10 @@ const EditBlog = () => {
     const [deleteBlog] = useMutation(DELETE_BLOG); 
     
     //fires if there is there no change in the Title input
-    const handleTitleError = async (event) => { 
-        await Error('Title was not changed. Please change before submitting the form.'); 
-        throw <div>{Error}</div>
+    const handleTitleError = async () => { 
+        throw Error('Title was not changed. Please change before submitting the form.'); 
     }; 
-    const handleBodyError = async (event) => { 
+    const handleBodyError = async () => { 
         throw Error('Body was not change. Please change before submitting the form.'); 
     };
     
@@ -91,6 +90,7 @@ const EditBlog = () => {
                 </span>
             </div>
             <h2>Edit Your Blog</h2>
+            <p>Please edit both Title and Body to correctly save data.</p>
             <form onSubmit={handleSubmit}>
             <input 
                 type="text" 
