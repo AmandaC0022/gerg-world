@@ -17,11 +17,19 @@ const typeDefs = gql`
     updatedAt: String
   }
 
+  type Gergism {
+    _id: ID
+    phrase: String
+    createdAt: String
+  }
+
   type Query {
     getBlogs: [Chronicle]
     findBlog(id: ID!): Chronicle
     findGergals: [Gergal]
     findGergal(id: ID!): Gergal
+    findGergisms: [Gergism]
+    findGergism(id: ID!): Gergism
   }
 
   type Mutation {
@@ -31,6 +39,9 @@ const typeDefs = gql`
     createGergal(word: String!, definition: String!): Gergal
     deleteGergal(id: ID!): Gergal
     updateGergal(id: ID, word: String, definition: String): Gergal
+    createGergism(phrase: String!): Gergism
+    updateGergism(id: ID, phrase: String): Gergism
+    deleteGergism(id: ID!): Gergism
   }
 `;
 

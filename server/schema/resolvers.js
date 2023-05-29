@@ -1,5 +1,4 @@
-const { Chronicle } = require('../models'); 
-const { Gergal } = require('../models'); 
+const { Chronicle, Gergal, Gergism } = require('../models'); 
 
 const resolvers = {
     Query: {
@@ -10,10 +9,16 @@ const resolvers = {
             return await Chronicle.findById(args.id);
         }, 
         findGergals: async () => {
-            return Gergal.find({}); 
+            return await Gergal.find({}); 
         }, 
         findGergal: async(parent, args) => {
             return await Gergal.findById(args.id); 
+        }, 
+        findGergism: async(parent, args) => {
+            return await Gergism.findById(args.id); 
+        }, 
+        findGergisms: async () => {
+            return await Gergism.find({})
         }
     },
     Mutation: {
@@ -54,6 +59,25 @@ const resolvers = {
                 throw new Error(`Gergal with ID ${id} is not found.`); 
             } 
             return updatedGergal; 
+        }, 
+        createGergism: async (parent, args) => {
+            return await Gergism.create(args); 
+        }, 
+        updateGergism: async (parent, args) => {
+            const { id } = args; 
+            const updatedGergism = await Gergism.findByIdAndUpdate(id, args);
+            if (!updatedGergism) {
+                throw new Error(`Gergism with ID ${id} is not found.`); 
+            } 
+            return updatedGergism; 
+        }, 
+        deleteGergism: async (parent, args ) => {
+            const { id } = args; 
+            const deleteGergism = await Gergism.findByIdAndDelete(id); 
+            if (!deleteGergism) {
+                throw new Error(`Gergism with ID ${id} is not found.`); 
+            }
+            return deleteGergism; 
         }
     }
 }
