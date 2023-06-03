@@ -7,6 +7,7 @@ const AddBlog = () => {
     const [title, setTitle] = useState(''); 
     const [body, setBody] = useState(''); 
 
+    //fetches the mutation to create a blog
     const [createBlog] = useMutation(CREATE_BLOG); 
 
     const handleSubmit = async (event) => {
