@@ -3,13 +3,13 @@ import { useMutation } from '@apollo/client';
 import { CREATE_BLOG } from '../utils/mutations';
 
 const AddBlog = () => {
+    //sets values to empty and allows them to be changed.
     const [title, setTitle] = useState(''); 
     const [body, setBody] = useState(''); 
 
     const [createBlog] = useMutation(CREATE_BLOG); 
 
     const handleSubmit = async (event) => {
-        // event.preventDefault(); 
         try {
             await createBlog({
                 variables: { title: title, body: body }
