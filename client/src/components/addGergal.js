@@ -37,7 +37,9 @@ const AddGergal = () => {
             />
             <br/>
             <textarea 
-                id="blogTextarea"
+                wrap="hard"
+                cols="90"
+                rows="5"
                 type="textarea" 
                 name="definition" 
                 required

@@ -37,10 +37,10 @@ const AddBlog = () => {
             />
             <br/>
             <textarea 
-                id="blogTextarea"
                 type="textarea" 
                 wrap="hard"
                 cols="90"
+                rows="5"
                 name="body" 
                 required
                 placeholder="Write Your Blog Here"

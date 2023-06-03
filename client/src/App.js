@@ -11,6 +11,7 @@ import EditGergal from './pages/EditGergal';
 import Gergisms from './pages/Gergisms';
 import Navbar from "./components/Navbar"; 
 import Footer from './components/Footer';
+import EditGergism from './pages/EditGergism';
 
 
 const client = new ApolloClient({
@@ -31,6 +32,7 @@ function App() {
             <Route path="/gergals" element={<Gergals/>}/>
             <Route path="/gergals/:gergalId" element={<EditGergal/>}/>
             <Route path="/gergisms" element={<Gergisms/>}/>
+            <Route path="/gergisms/:gergismId" element={<EditGergism/>}/>
             {/* <Route path="/gergatizer" element={<Gergatizers/>}/>
             <Route path="/gergisms/:gergismsId" element={<EditGergism/>}/>
             <Route path="/faces" element={<FacesOfGerg/>}/>

@@ -289,9 +289,6 @@ footer .links a {
   width: 90%; 
   border: solid 2px black; 
 }
-#blogTextarea {
-  height:100px; 
-}
 .accordion-button:focus {
   box-shadow:none; 
 }
@@ -341,9 +338,6 @@ footer .links a {
   width: 90%; 
   border: solid 2px black; 
 }
-#blogTextarea {
-  height:100px; 
-}
 .popUpContainer {
   background-color: var(--lime);
   box-shadow: var(--shadow);
@@ -375,12 +369,33 @@ footer .links a {
   margin-bottom: 10px; 
   width: 30%; 
 }
-.gergism-container h4 {
+.gergism-container p {
   background-color: white; 
   border-radius: 25px;
   padding: 25px 10px; 
   margin: 5px; 
   border: solid 2px black; 
+  font-weight: bold;
+}
+.addGergismContainer {
+  background-color: var(--blue);
+  border-radius: 25px;
+  box-shadow: var(--shadow);
+  padding: 20px; 
+  margin: 30px 0px; 
+  text-align: center;
+}
+.addGergismContainer form textarea {
+  background-color: white; 
+  border-radius: 25px;
+  padding: 10px; 
+  margin: 10px; 
+  width: 90%; 
+  border: solid 2px black; 
+}
+.error {
+  color:red; 
+  font-weight: bold;
 }
 
 @media only screen and (max-width: 786px) {

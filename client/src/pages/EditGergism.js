@@ -1,43 +1,37 @@
 import { useParams } from 'react-router-dom';
 import { useQuery, useMutation } from '@apollo/client';
 import { useState } from "react"; 
-import { FIND_GERGAL } from '../utils/queries';
-import { DELETE_GERGAL, UPDATE_GERGAL } from '../utils/mutations'; 
+import { FIND_GERGISM } from '../utils/queries';
+import { DELETE_GERGISM, UPDATE_GERGISM } from '../utils/mutations'; 
 import Modal from 'react-bootstrap/Modal'; 
 
-const EditGergal = () => {
-    const { gergalId } = useParams(); 
+const EditGergism = () => {
+    const { gergismId } = useParams(); 
 
-    const { loading, data, error } = useQuery(FIND_GERGAL, {
+    const { loading, data, error } = useQuery(FIND_GERGISM, {
         variables: { 
-            id: gergalId,  
+            id: gergismId,  
         }
     }); 
 
-    const [word, setWord] = useState('');  
-    const [definition, setDefinition] = useState(''); 
-
-    //handles Error Message
+    const [phrase, setPhrase] = useState('');  
     const [showElement, setShowElement] = useState(false);  
 
-    // Handle Updating the Blog 
-    const [updateGergal] = useMutation(UPDATE_GERGAL); 
+    // Handle Updating the Gergism 
+    const [updateGergism] = useMutation(UPDATE_GERGISM); 
 
     const handleSubmit = async (event) => {
         event.preventDefault(); 
-        console.log(gergalId); 
-        if (word === '') {
-            handleWordError(); 
-        }
-        if (definition === '') {
-            handleDefinitionError();  
+        console.log(gergismId); 
+        if (phrase === '') {
+            handlePhraseError(); 
         }
         try {
-            await updateGergal({
-                variables: { word: word, definition: definition, id:gergalId }
+            await updateGergism({
+                variables: { phrase: phrase, id:gergismId }
             })
-            console.log(`Gergal ${gergalId} has been updated. Word: ${word}, Definition:${definition}`); 
-            window.location = "/gergals"; 
+            console.log(`Gergism ${gergismId} has been updated. Phrase: ${phrase}`); 
+            window.location = "/gergisms"; 
         } catch (err) {
             console.log(err); }
       }; 
@@ -47,27 +41,23 @@ const EditGergal = () => {
     const handleClose = () => setShow(false);
     const handleShow = () => setShow(true); 
 
-    //Handling Deleting the Blog 
-    const [deleteGergal] = useMutation(DELETE_GERGAL); 
+    //Handling Deleting the Gergism 
+    const [deleteGergism] = useMutation(DELETE_GERGISM); 
     
-    //fires if there is there no change in the Title input
-    const handleWordError = () => { 
+    //fires if there is there no change in the Phrase input
+    const handlePhraseError = () => { 
         setShowElement(true); 
-        throw Error('Word was not changed. Please change before submitting the form.'); 
+        throw Error('Phrase was not changed. Please change before submitting the form.'); 
     }; 
-    const handleDefinitionError = () => { 
-        setShowElement(true); 
-        throw Error('Definition was not changed. Please change before submitting the form.'); 
-    };
-    
+
     const handleDelete = async (event) => {
         event.preventDefault(); 
         try {
-            await deleteGergal({
-                variables: { id: gergalId }
+            await deleteGergism({
+                variables: { id: gergismId }
             })
-            console.log(`Gergal has been deleted.`)
-            window.location="/gergals"
+            console.log(`Gergism has been deleted.`)
+            window.location="/gergisms"
         } catch (err) {
             console.log(err); 
         }
@@ -89,33 +79,23 @@ const EditGergal = () => {
                     delete
                 </span>
             </div>
-            <h2>Edit Your Gergal</h2>
-            <p>Please edit both Word and Definition to correctly save data.</p>
+            <h2>Edit Your Gergism</h2>
             <form onSubmit={handleSubmit}>
-            <input 
-                type="text" 
-                name="word" 
-                // placeholder={data.findBlog.title}
-                // ref={data.findBlog.title} 
-                defaultValue={data.findGergal.word}
-                required
-                onChange={e => setWord(e.target.value)}
-            />
             <br/>
             <textarea 
-                type="textarea" 
-                name="definition" 
                 wrap="hard"
                 cols="90"
                 rows="3"
+                type="textarea" 
+                name="phrase" 
                 required
                 // placeholder={data.findBlog.body} 
-                defaultValue={data.findGergal.definition}
-                onChange={e => setDefinition(e.target.value)}
+                defaultValue={data.findGergism.phrase}
+                onChange={e => setPhrase(e.target.value)}
             />
             <br/>
             {showElement ? (
-                <p className="error">Please edit the Word and Definition to save.</p>
+                <p className="error">Please edit the Phrase to save.</p>
             ) : ''}
             <button className="customButton" type="submit">Done!</button>
         </form>  
@@ -139,4 +119,4 @@ const EditGergal = () => {
     );
 }
  
-export default EditGergal;
+export default EditGergism;

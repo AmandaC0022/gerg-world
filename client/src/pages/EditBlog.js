@@ -17,6 +17,9 @@ const EditBlog = () => {
     const [title, setTitle] = useState('');  
     const [body, setBody] = useState(''); 
 
+    //handles Error Message
+    const [showElement, setShowElement] = useState(false); 
+
     // Handle Updating the Blog 
     const [updateBlog] = useMutation(UPDATE_BLOG); 
 
@@ -48,10 +51,12 @@ const EditBlog = () => {
     const [deleteBlog] = useMutation(DELETE_BLOG); 
     
     //fires if there is there no change in the Title input
-    const handleTitleError = async () => { 
+    const handleTitleError = () => { 
+        setShowElement(true); 
         throw Error('Title was not changed. Please change before submitting the form.'); 
     }; 
-    const handleBodyError = async () => { 
+    const handleBodyError = () => { 
+        setShowElement(true); 
         throw Error('Body was not changed. Please change before submitting the form.'); 
     };
     
@@ -97,16 +102,21 @@ const EditBlog = () => {
                 onChange={e => setTitle(e.target.value)}
             />
             <br/>
-            <input 
-                id="blogTextarea"
+            <textarea 
                 type="textarea" 
                 name="body" 
+                wrap="hard"
+                cols="90"
+                rows="3"
                 required
                 // placeholder={data.findBlog.body} 
                 defaultValue={data.findBlog.body}
                 onChange={e => setBody(e.target.value)}
             />
             <br/>
+            {showElement ? (
+                <p className="error">Please edit the Title and the Body to save.</p>
+            ) : ''}
             <button className="customButton" type="submit">Done!</button>
         </form>  
         <Modal show={show} onHide={handleShow} centered size="lg">

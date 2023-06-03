@@ -1,5 +1,5 @@
 import image from "../images/real funny stuff.png"; 
-import AddGergal from '../components/addGergal'; 
+import AddGergism from '../components/AddGergism'; 
 import { useQuery } from '@apollo/client';
 import { useState } from 'react'; 
 import { FIND_GERGISMS } from '../utils/queries';
@@ -29,17 +29,17 @@ const Gergisms = () => {
                 {allGergisms.map((gergism) => {
                     return (
                         <div className="gergism-container" id={gergism._id} key={gergism.id}>
-                            <Link to={`/gergisms/${gergism.id}`}>
+                            <Link to={`/gergisms/${gergism._id}`}>
                             <span className="material-symbols-outlined">
                                 edit
                             </span>
                         </Link>
-                            <h4 className="">{gergism.phrase}</h4>
+                            <p>{gergism.phrase}</p>
                         </div>
                     )
                 })}
             </div>
-            <AddGergal/>
+            <AddGergism/>
         </div>
      );
 }
