@@ -23,6 +23,23 @@ const typeDefs = gql`
     createdAt: String
   }
 
+  type Recipe {
+    _id: ID
+    title: String
+    category: [String]
+    serves: String
+    cooktime: String
+    ingredients: [String]
+    cookingsteps: [String]
+    imageurl: String
+    createdAt: String
+  }
+
+  type Category {
+    _id: ID
+    name: String
+  }
+
   type Query {
     getBlogs: [Chronicle]
     findBlog(id: ID!): Chronicle
@@ -30,6 +47,8 @@ const typeDefs = gql`
     findGergal(id: ID!): Gergal
     findGergisms: [Gergism]
     findGergism(id: ID!): Gergism
+    findRecipes: [Recipe]
+    findRecipe(id: ID!): Recipe
   }
 
   type Mutation {
@@ -42,6 +61,9 @@ const typeDefs = gql`
     createGergism(phrase: String!): Gergism
     updateGergism(id: ID, phrase: String): Gergism
     deleteGergism(id: ID!): Gergism
+    createRecipe(title: String, category: [String], serves: String, cooktime: String, ingredients: [String], cookingsteps: [String], imageurl: String): Recipe
+    updateRecipe(id: ID, title: String, category: [String], serves: String, cooktime: String, ingredients: [String], cookingsteps: [String], imageurl: String): Recipe
+    deleteRecipe(id: ID!): Recipe
   }
 `;
 

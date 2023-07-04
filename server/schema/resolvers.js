@@ -1,4 +1,4 @@
-const { Chronicle, Gergal, Gergism } = require('../models'); 
+const { Chronicle, Gergal, Gergism, Recipe, Category } = require('../models'); 
 
 const resolvers = {
     Query: {
@@ -19,6 +19,12 @@ const resolvers = {
         }, 
         findGergisms: async () => {
             return await Gergism.find({})
+        },
+        findRecipe: async(parent, args) => {
+            return await Recipe.findById(args.id); 
+        }, 
+        findRecipes: async () => {
+            return await Recipe.find({})
         }
     },
     Mutation: {
@@ -78,7 +84,26 @@ const resolvers = {
                 throw new Error(`Gergism with ID ${id} is not found.`); 
             }
             return deleteGergism; 
-        }
+        },
+        createRecipe: async (parent, args) => {
+            return await Recipe.create(args); 
+        }, 
+        deleteRecipe: async (parent, args ) => {
+            const { id } = args; 
+            const deletedRecipe = await Recipe.findByIdAndDelete(id); 
+            if (!deletedRecipe) {
+                throw new Error(`Recipe with ID ${id} is not found.`); 
+            }
+            return deletedRecipe; 
+        },
+        updateRecipe: async (parent, args) => {
+            const { id } = args; 
+            const updatedRecipe = await Recipe.findByIdAndUpdate(id, args);
+            if (!updatedRecipe) {
+                throw new Error(`Recipe with ID ${id} is not found.`); 
+            } 
+            return updatedRecipe; 
+        }, 
     }
 }
 
