@@ -1,5 +1,4 @@
 import cloud from "../images/cloud.png"; 
-import { useState } from "react"; 
 import { useQuery } from '@apollo/client';
 import { FIND_GERGALS } from '../utils/queries'; 
 

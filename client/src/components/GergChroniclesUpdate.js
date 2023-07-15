@@ -1,14 +1,37 @@
+import { GET_BLOGS } from '../utils/queries';
+import { useQuery } from '@apollo/client';
+
 const GergChroniclesUpdate = () => {
+    const { loading, data, error } = useQuery(GET_BLOGS); 
+
+    if (loading) {
+        return <div>Loading...</div>
+    }
+
+    if (error) {
+        return <div>{error.message}</div>
+    }
+
+    //Grabs the index from the latest gergal
+    const index = data.getBlogs.length - 1; 
+    const blog = {
+        title: data.getBlogs[index].title,  
+        body: data.getBlogs[index].body, 
+        date: data.getBlogs[index].createdAt
+    }; 
+
+    console.log(blog); 
+
     return ( 
     <div className="GCUContainer">
         <h2>"GERG" CHRONICLES UPDATE</h2>
         <div className="GCUCard">
             <div className="GCUHeader">
-                <h3>Title</h3>
-                <h4>Date</h4>
+                <h3>{blog.title}</h3>
+                <h4>{blog.date}</h4>
             </div>
             <hr/>
-            <p>Nap all day put toy mouse in food bowl run out of litter box at full speed , or find empty spot in cupboard and sleep all day for trip on catnip or claws in the eye of the beholder, for cattt catt cattty cat being a cat, reaches under door into adjacent room. Bury the poop bury it deep meow but poop on couch need to chase tail furrier and even more furrier hairball. Eat prawns daintily with a claw then lick paws clean wash down prawns with a lap of carnation milk then retire to the warmest spot on the couch to claw at the fabric before taking a catnap haha you hold me hooman I scratch yet get my claw stuck in the dog’s ear for decide to want nothing to do with my owner today lick butt and make a weird face and fat baby cat best buddy little guy. Nap all day put toy mouse in food bowl run out of litter box at full speed , or find empty spot in cupboard and sleep all day for trip on catnip or claws in the eye of the beholder, for cattt catt cattty cat being a cat, reaches under door into adjacent room.</p>
+            <p>{blog.body}</p>
         </div>
     </div>
      );
