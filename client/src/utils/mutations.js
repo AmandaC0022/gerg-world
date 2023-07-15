@@ -97,8 +97,8 @@ export const DELETE_GERGISM = gql`
 `;
 
 export const CREATE_RECIPE = gql`
-  mutation CreateRecipe($title: String, $category: [String], $serves: String, $cooktime: String, $ingredients: [String], $cookingsteps: [String], $imageurl: String)) {
-    createRecipe(title: $title, category: $category, serves: $servers, cooktime: $cooktime, ingredients: $ingredients, cookingsteps: $cookingsteps, imageurl: $imageurl)) {
+  mutation CreateRecipe($title: String, $category: [String], $serves: String, $cooktime: String, $ingredients: [String], $cookingsteps: [String], $imageurl: String) {
+    createRecipe(title: $title, category: $category, serves: $serves, cooktime: $cooktime, ingredients: $ingredients, cookingsteps: $cookingsteps, imageurl: $imageurl) {
       _id
       title
       category
@@ -112,8 +112,8 @@ export const CREATE_RECIPE = gql`
 `;
 
 export const UPDATE_RECIPE = gql`
-  mutation UpdateRecipe($title: String, $category: [String], $serves: String, $cooktime: String, $ingredients: [String], $cookingsteps: [String], $imageurl: String)) {
-    updateRecipe(title: $title, category: $category, serves: $servers, cooktime: $cooktime, ingredients: $ingredients, cookingsteps: $cookingsteps, imageurl: $imageurl)) {
+  mutation UpdateRecipe($title: String, $category: [String], $serves: String, $cooktime: String, $ingredients: [String], $cookingsteps: [String], $imageurl: String) {
+    updateRecipe(title: $title, category: $category, serves: $serves, cooktime: $cooktime, ingredients: $ingredients, cookingsteps: $cookingsteps, imageurl: $imageurl) {
       _id
       title
       category
@@ -127,8 +127,8 @@ export const UPDATE_RECIPE = gql`
 `;
 
 export const DELETE_RECIPE = gql`
-  mutation DeleteRecipe($title: String, $category: [String], $serves: String, $cooktime: String, $ingredients: [String], $cookingsteps: [String], $imageurl: String)) {
-    DeleteRecipe(title: $title, category: $category, serves: $servers, cooktime: $cooktime, ingredients: $ingredients, cookingsteps: $cookingsteps, imageurl: $imageurl)) {
+  mutation DeleteRecipe($title: String, $category: [String], $serves: String, $cooktime: String, $ingredients: [String], $cookingsteps: [String], $imageurl: String) {
+    DeleteRecipe(title: $title, category: $category, serves: $serves, cooktime: $cooktime, ingredients: $ingredients, cookingsteps: $cookingsteps, imageurl: $imageurl) {
       _id
       title
       category

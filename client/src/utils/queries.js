@@ -70,7 +70,7 @@ export const FIND_RECIPES = gql`
       _id
       title
       category
-      servers
+      serves
       cooktime
       ingredients
       cookingsteps
@@ -85,7 +85,7 @@ export const FIND_RECIPE = gql`
       _id
       title
       category
-      servers
+      serves
       cooktime
       ingredients
       cookingsteps
