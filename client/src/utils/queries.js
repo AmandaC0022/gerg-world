@@ -63,3 +63,33 @@ export const FIND_GERGISM = gql`
     }
   }
 `;
+
+export const FIND_RECIPES = gql`
+  query findRecipes {
+    findRecipes {
+      _id
+      title
+      category
+      servers
+      cooktime
+      ingredients
+      cookingsteps
+      imageurl
+    }
+  }
+`;
+
+export const FIND_RECIPE = gql`
+  query findRecipe($id: ID!) {
+    findRecipe(id: $id) {
+      _id
+      title
+      category
+      servers
+      cooktime
+      ingredients
+      cookingsteps
+      imageurl
+    }
+  }
+`;

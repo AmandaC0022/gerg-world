@@ -2,7 +2,7 @@ import image from "../images/baking.png";
 // import AddBlog from "../components/AddBlog";
 import Accordion from 'react-bootstrap/Accordion';
 import { useQuery } from '@apollo/client';
-import { GET_BLOGS } from '../utils/queries';
+// import { GET_BLOGS } from '../utils/queries';
 import { Link } from "react-router-dom";
 
 const Recipes = () => {
