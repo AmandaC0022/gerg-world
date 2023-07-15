@@ -12,6 +12,7 @@ import Gergisms from './pages/Gergisms';
 import Navbar from "./components/Navbar"; 
 import Footer from './components/Footer';
 import EditGergism from './pages/EditGergism';
+import Recipes from './pages/Recipes'; 
 
 
 const client = new ApolloClient({
@@ -33,8 +34,8 @@ function App() {
             <Route path="/gergals/:gergalId" element={<EditGergal/>}/>
             <Route path="/gergisms" element={<Gergisms/>}/>
             <Route path="/gergisms/:gergismId" element={<EditGergism/>}/>
-            {/* <Route path="/gergatizer" element={<Gergatizers/>}/>
-            <Route path="/gergisms/:gergismsId" element={<EditGergism/>}/>
+            <Route path="/recipes" element={<Recipes/>}/>
+            {/*<Route path="/gergisms/:gergismsId" element={<EditGergism/>}/>
             <Route path="/faces" element={<FacesOfGerg/>}/>
             <Route path="/shop" element={<ShopAGerg/>}/> */}
           </Routes>

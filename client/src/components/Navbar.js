@@ -12,7 +12,7 @@ const Navbar = () => {
                 <div className="links">
                     <Link className="hover-underline-animation" to="/chronicles">"GERG"CHRONICLES</Link>
                     <a className="hover-underline-animation"href="/gergals">"GERG"ALS</a>
-                    <a className="hover-underline-animation"href="/">"GERG"ATIZERS</a>
+                    <a className="hover-underline-animation"href="/recipes">"GERG"ATIZERS</a>
                     <a className="hover-underline-animation"href="/gergisms">"GERG"ISMS</a>
                     <a className="hover-underline-animation"href="/">FACES OF "GERG"</a>
                     <a className="hover-underline-animation"href="/">SHOP A "GERG"</a>
