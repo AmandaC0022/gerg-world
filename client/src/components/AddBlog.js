@@ -19,7 +19,8 @@ const AddBlog = () => {
         } catch (err) {
             console.log(err); 
         }
-    
+        
+        //returns the values back to empty after saving
         setTitle(''); 
         setBody(''); 
     }
