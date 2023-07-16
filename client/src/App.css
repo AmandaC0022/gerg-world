@@ -406,7 +406,7 @@ footer .links a {
 
 /* RECIPES */
 .recipe-container {
-  background-color: var(--orange);
+  background-color: var(--lime);
   border-radius: 25px;
   box-shadow: var(--shadow);
   padding: 20px; 
@@ -434,6 +434,22 @@ footer .links a {
 }
 .edit-icon {
   text-align: right;
+}
+.addRecipeContainer {
+  background-color: var(--orange);
+  border-radius: 25px;
+  box-shadow: var(--shadow);
+  padding: 20px; 
+  margin: 30px 0px; 
+  text-align: center;
+}
+.addRecipeContainer form input {
+  background-color: white; 
+  border-radius: 25px;
+  padding: 10px; 
+  margin: 10px; 
+  width: 90%; 
+  border: solid 2px black; 
 }
 @media screen and (max-width:678px) {
   .recipe-header {

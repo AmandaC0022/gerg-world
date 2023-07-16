@@ -1,6 +1,6 @@
 import image from "../images/baking.png"; 
 import recipeImg from "../images/spam.jpeg"; 
-// import AddBlog from "../components/AddBlog";
+import AddRecipe from "../components/AddRecipe";
 import Accordion from 'react-bootstrap/Accordion';
 import { Link } from "react-router-dom";
 import { useQuery } from '@apollo/client';
@@ -69,6 +69,7 @@ const Recipes = () => {
                     </Accordion.Item>
                 </Accordion>
             )})}
+            <AddRecipe/>
         </div>
      );
 }
